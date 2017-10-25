@@ -1,0 +1,11 @@
+C:\Users\PEPE\cine\proyectoCine\proyectoCine\bin\Debug\proyectoCine.exe.config
+C:\Users\PEPE\cine\proyectoCine\proyectoCine\bin\Debug\proyectoCine.exe
+C:\Users\PEPE\cine\proyectoCine\proyectoCine\bin\Debug\proyectoCine.pdb
+C:\Users\PEPE\cine\proyectoCine\proyectoCine\obj\Debug\proyectoCine.csprojResolveAssemblyReference.cache
+C:\Users\PEPE\cine\proyectoCine\proyectoCine\obj\Debug\proyectoCine.frmPrincipal.resources
+C:\Users\PEPE\cine\proyectoCine\proyectoCine\obj\Debug\proyectoCine.Properties.Resources.resources
+C:\Users\PEPE\cine\proyectoCine\proyectoCine\obj\Debug\proyectoCine.csproj.GenerateResource.Cache
+C:\Users\PEPE\cine\proyectoCine\proyectoCine\obj\Debug\proyectoCine.csproj.CoreCompileInputs.cache
+C:\Users\PEPE\cine\proyectoCine\proyectoCine\obj\Debug\proyectoCine.exe
+C:\Users\PEPE\cine\proyectoCine\proyectoCine\obj\Debug\proyectoCine.pdb
+C:\Users\PEPE\cine\proyectoCine\proyectoCine\obj\Debug\proyectoCine.frmConsulta1.resources
