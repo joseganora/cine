@@ -39,7 +39,6 @@ namespace proyectoCine
         }
         public SqlDataReader consulta(string consulta)
         {
-            
             comando = new SqlCommand(consulta,connection);
             connection.Open();
             SqlDataReader myReader = comando.ExecuteReader();

@@ -52,5 +52,10 @@ namespace proyectoCine
                 lblEstadoConexion.ForeColor = Color.Red;
             }
         }
+
+        private void btnConsulta3_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
