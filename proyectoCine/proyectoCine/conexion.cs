@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections.Generic;
 using System.Data;
+using System.Data.OleDb;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
@@ -10,14 +11,13 @@ namespace proyectoCine
 {
     class conexion
     {
-        string connectionString = "Persist Security Info=False;User ID=sa;Initial Catalog=Northwind;Data Source=MYSERVER";
+        string connectionString = "Data Source=PEPE-PC;Initial Catalog=cine;Integrated Security=True";
         SqlConnection connection;
-        SqlDataAdapter myDataAdapter;
+        SqlCommand comando;
 
         public conexion()
         {
-            connection = new SqlConnection(connectionString);
-            myDataAdapter = new SqlDataAdapter();
+            connection = new SqlConnection(connectionString); 
         }
 
         public bool verificarConexion()
@@ -37,5 +37,22 @@ namespace proyectoCine
             return band;
 
         }
+        public SqlDataReader consulta(string consulta)
+        {
+            
+            comando = new SqlCommand(consulta,connection);
+            connection.Open();
+            SqlDataReader myReader = comando.ExecuteReader();
+            connection.Close();
+            return myReader;
+        }
+        public void insert_update(string consulta)
+        {
+            comando = new SqlCommand(consulta, connection);
+            connection.Open();
+            comando.ExecuteNonQuery();
+            connection.Close();
+        }
+
     }
 }
