@@ -12,9 +12,17 @@ namespace proyectoCine
 {
     public partial class frmConsulta1 : Form
     {
+        conexion con;
+        
         public frmConsulta1()
         {
             InitializeComponent();
+        }
+        
+
+        private void frmConsulta1_Load(object sender, EventArgs e)
+        {
+            con = new conexion();
         }
     }
 }

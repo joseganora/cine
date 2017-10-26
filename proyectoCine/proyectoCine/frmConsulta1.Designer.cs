@@ -40,6 +40,7 @@
             this.ShowInTaskbar = false;
             this.Text = "frmConsulta1";
             this.TopMost = true;
+            this.Load += new System.EventHandler(this.frmConsulta1_Load);
             this.ResumeLayout(false);
 
         }
