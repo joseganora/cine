@@ -61,6 +61,7 @@
             this.btnConsulta2.TabIndex = 0;
             this.btnConsulta2.Text = "Consultar...";
             this.btnConsulta2.UseVisualStyleBackColor = true;
+            this.btnConsulta2.Click += new System.EventHandler(this.btnConsulta2_Click);
             // 
             // btnConsulta3
             // 
@@ -84,6 +85,7 @@
             this.btnConsulta4.TabIndex = 0;
             this.btnConsulta4.Text = "Consultar...";
             this.btnConsulta4.UseVisualStyleBackColor = true;
+            this.btnConsulta4.Click += new System.EventHandler(this.btnConsulta4_Click);
             // 
             // btnConsulta5
             // 
@@ -95,6 +97,7 @@
             this.btnConsulta5.TabIndex = 0;
             this.btnConsulta5.Text = "Consultar...";
             this.btnConsulta5.UseVisualStyleBackColor = true;
+            this.btnConsulta5.Click += new System.EventHandler(this.btnConsulta5_Click);
             // 
             // btnConsulta6
             // 
@@ -106,6 +109,7 @@
             this.btnConsulta6.TabIndex = 0;
             this.btnConsulta6.Text = "Consultar...";
             this.btnConsulta6.UseVisualStyleBackColor = true;
+            this.btnConsulta6.Click += new System.EventHandler(this.btnConsulta6_Click);
             // 
             // lblConexion
             // 

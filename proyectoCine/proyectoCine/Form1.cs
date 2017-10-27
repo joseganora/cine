@@ -22,14 +22,9 @@ namespace proyectoCine
         private void btnConsulta1_Click(object sender, EventArgs e)
         {
 
-            if (con.verificarConexion())
-            {
+            
                 new frmConsulta1().Show();
-            }
-            else
-            {
-                MessageBox.Show("No se puede realizar la consulta, verifique la conexión");
-            }
+            
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -55,7 +50,27 @@ namespace proyectoCine
 
         private void btnConsulta3_Click(object sender, EventArgs e)
         {
+            new frmConsulta3().Show();
+        }
 
+        private void btnConsulta2_Click(object sender, EventArgs e)
+        {
+            new frmConsulta2().Show();
+        }
+
+        private void btnConsulta4_Click(object sender, EventArgs e)
+        {
+            new frmConsulta4().Show();
+        }
+
+        private void btnConsulta5_Click(object sender, EventArgs e)
+        {
+            new frmConsulta5().Show();
+        }
+
+        private void btnConsulta6_Click(object sender, EventArgs e)
+        {
+            new frmConsulta6().Show();
         }
     }
 }

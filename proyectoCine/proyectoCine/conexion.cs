@@ -11,7 +11,7 @@ namespace proyectoCine
 {
     class conexion
     {
-        string connectionString = "Data Source=PEPE-PC;Initial Catalog=cine;Integrated Security=True";
+        string connectionString = "Data Source=PEPE-PC;Initial Catalog=libreria;Integrated Security=True"; //"Data Source=PEPE-PC;Initial Catalog=cine;Integrated Security=True";
         SqlConnection connection;
         SqlCommand comando;
 
@@ -37,13 +37,16 @@ namespace proyectoCine
             return band;
 
         }
-        public SqlDataReader consulta(string consulta)
+        public DataTable consulta(string consulta)
         {
             comando = new SqlCommand(consulta,connection);
             connection.Open();
             SqlDataReader myReader = comando.ExecuteReader();
+            DataTable dt = new DataTable();
+            dt.Load(myReader);
+            myReader.Close();
             connection.Close();
-            return myReader;
+            return dt;
         }
         public void insert_update(string consulta)
         {
