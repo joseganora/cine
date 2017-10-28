@@ -9,3 +9,8 @@ C:\Users\PEPE\cine\proyectoCine\proyectoCine\obj\Debug\proyectoCine.csproj.CoreC
 C:\Users\PEPE\cine\proyectoCine\proyectoCine\obj\Debug\proyectoCine.exe
 C:\Users\PEPE\cine\proyectoCine\proyectoCine\obj\Debug\proyectoCine.pdb
 C:\Users\PEPE\cine\proyectoCine\proyectoCine\obj\Debug\proyectoCine.frmConsulta1.resources
+C:\Users\PEPE\cine\proyectoCine\proyectoCine\obj\Debug\proyectoCine.frmConsulta2.resources
+C:\Users\PEPE\cine\proyectoCine\proyectoCine\obj\Debug\proyectoCine.frmConsulta3.resources
+C:\Users\PEPE\cine\proyectoCine\proyectoCine\obj\Debug\proyectoCine.frmConsulta4.resources
+C:\Users\PEPE\cine\proyectoCine\proyectoCine\obj\Debug\proyectoCine.frmConsulta5.resources
+C:\Users\PEPE\cine\proyectoCine\proyectoCine\obj\Debug\proyectoCine.frmConsulta6.resources

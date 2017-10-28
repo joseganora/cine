@@ -11,7 +11,7 @@ namespace proyectoCine
 {
     class conexion
     {
-        string connectionString = "Data Source=PEPE-PC;Initial Catalog=libreria;Integrated Security=True"; //"Data Source=PEPE-PC;Initial Catalog=cine;Integrated Security=True";
+        string connectionString = "Data Source=PEPE-PC;Initial Catalog=CINE_TPI;Integrated Security=True"; 
         SqlConnection connection;
         SqlCommand comando;
 
