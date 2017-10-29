@@ -117,7 +117,6 @@
             this.groupBox1.Size = new System.Drawing.Size(1088, 60);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Filtros";
             // 
             // frmConsulta1
             // 

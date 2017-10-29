@@ -14,3 +14,4 @@ C:\Users\PEPE\cine\proyectoCine\proyectoCine\obj\Debug\proyectoCine.frmConsulta3
 C:\Users\PEPE\cine\proyectoCine\proyectoCine\obj\Debug\proyectoCine.frmConsulta4.resources
 C:\Users\PEPE\cine\proyectoCine\proyectoCine\obj\Debug\proyectoCine.frmConsulta5.resources
 C:\Users\PEPE\cine\proyectoCine\proyectoCine\obj\Debug\proyectoCine.frmConsulta6.resources
+C:\Users\PEPE\cine\proyectoCine\proyectoCine\obj\Debug\proyectoCine.abmPeliculas.resources

@@ -45,7 +45,14 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="abmPeliculas.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="abmPeliculas.Designer.cs">
+      <DependentUpon>abmPeliculas.cs</DependentUpon>
+    </Compile>
     <Compile Include="conexion.cs" />
+    <Compile Include="director.cs" />
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -88,8 +95,13 @@
     <Compile Include="frmConsulta6.Designer.cs">
       <DependentUpon>frmConsulta6.cs</DependentUpon>
     </Compile>
+    <Compile Include="genero.cs" />
+    <Compile Include="pelicula.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="abmPeliculas.resx">
+      <DependentUpon>abmPeliculas.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
