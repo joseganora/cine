@@ -48,5 +48,10 @@ namespace proyectoCine
 
             dgDatos.DataSource = dt;
         }
+
+        private void txtNombre_TextChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }
