@@ -59,13 +59,13 @@ namespace proyectoCine
         public void consultaDR(string consulta)
         {
             comando = new SqlCommand(consulta, connection);
-            connection.Open();
+            if(connection.State != ConnectionState.Open) connection.Open();
             dr = comando.ExecuteReader();
 
         }
         public void desconectar()
         {
-            if (connection.State == ConnectionState.Connecting)
+            
                 connection.Close();
         }
         public void insert_update(string consulta)

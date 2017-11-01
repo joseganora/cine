@@ -39,9 +39,8 @@ namespace proyectoCine
         {
             cargarArregloAuxiliar("generos");
             cargarArregloAuxiliar("directores");
-            int cantidad = cantidadDeRegistros("peliculas") +50;
-
-            peliculas = new pelicula[cantidad];
+            
+            peliculas = new pelicula[cantidadDeRegistros("peliculas") + 50];
             string comando = "select * from peliculas order by titulo";
             conexion.consultaDR(comando);
             SqlDataReader dr = conexion.pDr;
@@ -51,7 +50,7 @@ namespace proyectoCine
                 pelicula p = new pelicula();
                 if(!dr.IsDBNull(0)) p.pId = dr.GetInt32(0);
                 if (!dr.IsDBNull(1)) p.pTitulo = (string)dr.GetValue(1);
-                if (!dr.IsDBNull(2)) p.pEstreno = DateTime.Parse((string)dr.GetValue(2));
+                if (!dr.IsDBNull(2)) p.pEstreno = (DateTime)dr.GetValue(2);
                 if (!dr.IsDBNull(3)) p.pIdioma = (string)dr.GetValue(3);
                 if (!dr.IsDBNull(4)) p.pSinopsis = (string)dr.GetValue(4);
                 if (!dr.IsDBNull(5)) p.pGenero = getGenero(dr.GetInt32(5));
@@ -73,8 +72,8 @@ namespace proyectoCine
             int i = 0;
 
             if (tabla.Equals("generos")) generos = new genero[cantidad];
-            if (tabla.Equals("directores"))
-                while (dr.Read())
+            if (tabla.Equals("directores")) directores = new director[cantidad];
+            while (dr.Read())
             {
                 if (tabla.Equals("generos")) generos[i] = new genero(dr.GetInt32(0), (String)dr.GetValue(1));
                 if (tabla.Equals("directores")) directores[i] = new director(dr.GetInt32(0), (String)dr.GetValue(1), (String)dr.GetValue(2));
@@ -89,7 +88,7 @@ namespace proyectoCine
             SqlDataReader dr = conexion.pDr;
             dr.Read();
             int cantidad = dr.GetInt32(0);
-            dr.Close();
+            conexion.desconectar();
             return cantidad;
         }
         private void cargarCombo(ComboBox cmb, string nombreTabla)
