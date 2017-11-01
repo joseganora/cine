@@ -24,7 +24,7 @@ namespace proyectoCine
         private void frmConsulta1_Load(object sender, EventArgs e)
         {
             con = new conexion();
-            DataTable dt =  con.consulta("select * from clientes");
+            DataTable dt =  con.consultaDT("select nom_cliente Nombre, ape_cliente Apellido from clientes");
             
             dgDatos.DataSource = dt;
             
@@ -37,19 +37,24 @@ namespace proyectoCine
 
         private void button1_Click(object sender, EventArgs e)
         {
-            DataTable dt = con.consulta("select * from clientes where upper(nom_cliente) like '%upper("+txtNombre.Text+ ")%'");
+            DataTable dt = con.consultaDT("select * from clientes where upper(nom_cliente) like '%upper("+txtNombre.Text+ ")%'");
 
             dgDatos.DataSource = dt;
         }
 
         private void txtNombre_KeyUp(object sender, KeyEventArgs e)
         {
-            DataTable dt = con.consulta("select * from clientes where upper(nom_cliente) like upper('%" + txtNombre.Text + "%')");
+            DataTable dt = con.consultaDT("select * from clientes where upper(nom_cliente) like upper('%" + txtNombre.Text + "%')");
 
             dgDatos.DataSource = dt;
         }
 
         private void txtNombre_TextChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void tableLayoutPanel1_Paint_1(object sender, PaintEventArgs e)
         {
 
         }

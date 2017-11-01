@@ -13,19 +13,28 @@ namespace proyectoCine
         string connectionString = "Data Source=PEPE-PC;Initial Catalog=CINE_TPI;Integrated Security=True"; 
         SqlConnection connection;
         SqlCommand comando;
-
+        SqlDataReader dr;
+        public SqlDataReader pDr
+        {
+            get { return dr; }
+            set { dr = value; }
+        }  
         public conexion()
         {
             connection = new SqlConnection(connectionString); 
         }
-
+        public conexion(string stringConn)
+        {
+            connectionString = stringConn;
+            connection = new SqlConnection(connectionString);
+        }
         public bool verificarConexion()
         {
             bool band = false;
             try
             {
                 connection.Open();
-                if (connection.State == ConnectionState.Open) band = true;
+                band = connection.State == ConnectionState.Open;
                 connection.Close();
                 
             }
@@ -36,7 +45,7 @@ namespace proyectoCine
             return band;
 
         }
-        public DataTable consulta(string consulta)
+        public DataTable consultaDT(string consulta)
         {
             comando = new SqlCommand(consulta,connection);
             connection.Open();
@@ -46,6 +55,18 @@ namespace proyectoCine
             myReader.Close();
             connection.Close();
             return dt;
+        }
+        public void consultaDR(string consulta)
+        {
+            comando = new SqlCommand(consulta, connection);
+            connection.Open();
+            dr = comando.ExecuteReader();
+
+        }
+        public void desconectar()
+        {
+            if (connection.State == ConnectionState.Connecting)
+                connection.Close();
         }
         public void insert_update(string consulta)
         {

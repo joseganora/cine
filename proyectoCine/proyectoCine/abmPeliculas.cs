@@ -7,25 +7,26 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.OleDb;
+using System.Data.Sql;
+using System.Data.SqlClient;
 
 namespace proyectoCine
 {
     
     public partial class abmPeliculas : Form
     {
-        string dbString = "Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:/Users/PEPE/cine/cine-tp.accdb";
-        OleDbConnection con;
-        OleDbCommand comand;
+        conexion conexion;
         pelicula[] peliculas;
         director[] directores;
         genero[] generos;
         bool nuevo = false;
         int contPeliculas = 0;
+        
         public abmPeliculas()
         {
-            con = new OleDbConnection(dbString);
+            
             InitializeComponent();
+            conexion = new conexion();
         }
 
         private void abmPeliculas_Load(object sender, EventArgs e)
@@ -36,76 +37,68 @@ namespace proyectoCine
         }
         private void cargarArreglos()
         {
-            string comando = "select count(*) from generos";
-            comand = new OleDbCommand(comando, con);
-            con.Open();
-            OleDbDataReader dr = comand.ExecuteReader();
-            dr.Read();
-            int cantidad;
-            cantidad = dr.GetInt32(0);
-            dr.Close();
-
-            generos = new genero[cantidad];
-            comando = "select * from generos";
-            comand = new OleDbCommand(comando, con);
-            dr = comand.ExecuteReader();
-            int i = 0;
-            while (dr.Read())
-            {
-                generos[i] = new genero(dr.GetInt32(0),(String)dr.GetValue(1));
-                i++;
-            }
-            dr.Close();
-
-            comando = "select count(*) from directores";
-            comand = new OleDbCommand(comando, con);
-            dr = comand.ExecuteReader();
-            dr.Read();
-            cantidad = dr.GetInt32(0);
-            dr.Close();
-
-            directores = new director[cantidad];
-            comando = "select * from directores";
-            comand = new OleDbCommand(comando, con);
-            dr = comand.ExecuteReader();
-            i = 0;
-            while (dr.Read())
-            {
-                directores[i] = new director(dr.GetInt32(0), (String)dr.GetValue(1), (String)dr.GetValue(2));
-                i++;
-            }
-            dr.Close();
-
-            comando = "select count(*) from peliculas";
-            comand = new OleDbCommand(comando, con);
-            dr = comand.ExecuteReader();
-            dr.Read();
-            cantidad = dr.GetInt32(0)+50;
-            dr.Close();
+            cargarArregloAuxiliar("generos");
+            cargarArregloAuxiliar("directores");
+            int cantidad = cantidadDeRegistros("peliculas") +50;
 
             peliculas = new pelicula[cantidad];
-            comando = "select * from peliculas order by titulo";
-            comand = new OleDbCommand(comando, con);
-            dr = comand.ExecuteReader();
+            string comando = "select * from peliculas order by titulo";
+            conexion.consultaDR(comando);
+            SqlDataReader dr = conexion.pDr;
             contPeliculas = 0;
             while (dr.Read())
             {
                 pelicula p = new pelicula();
-                p.pId = dr.GetInt32(0);
-                p.pTitulo = (string)dr.GetValue(1);
-                p.pEstreno = DateTime.Parse((string)dr.GetValue(2));
-                p.pIdioma = (string)dr.GetValue(3);
-                p.pSinopsis = (string)dr.GetValue(4);
-                p.pGenero = getGenero(dr.GetInt32(5));
-                p.pDirector = getDirector(dr.GetInt32(6));
-                p.pCalificacion = dr.GetInt32(7);
-                p.pDuracion = dr.GetInt32(8);
+                if(!dr.IsDBNull(0)) p.pId = dr.GetInt32(0);
+                if (!dr.IsDBNull(1)) p.pTitulo = (string)dr.GetValue(1);
+                if (!dr.IsDBNull(2)) p.pEstreno = DateTime.Parse((string)dr.GetValue(2));
+                if (!dr.IsDBNull(3)) p.pIdioma = (string)dr.GetValue(3);
+                if (!dr.IsDBNull(4)) p.pSinopsis = (string)dr.GetValue(4);
+                if (!dr.IsDBNull(5)) p.pGenero = getGenero(dr.GetInt32(5));
+                if (!dr.IsDBNull(6)) p.pDirector = getDirector(dr.GetInt32(6));
+                if (!dr.IsDBNull(7)) p.pCalificacion = dr.GetInt32(7);
+                if (!dr.IsDBNull(8)) p.pDuracion = dr.GetInt32(8);
                 peliculas[contPeliculas] = p;
                 contPeliculas++;
             }
-            dr.Close();
-            con.Close();
+            conexion.desconectar();
 
+        }
+        private void cargarArregloAuxiliar(string tabla)
+        {
+            int cantidad = cantidadDeRegistros(tabla);
+            string comando = "select * from " + tabla;
+            conexion.consultaDR(comando);
+            SqlDataReader dr = conexion.pDr;
+            int i = 0;
+
+            if (tabla.Equals("generos")) generos = new genero[cantidad];
+            if (tabla.Equals("directores"))
+                while (dr.Read())
+            {
+                if (tabla.Equals("generos")) generos[i] = new genero(dr.GetInt32(0), (String)dr.GetValue(1));
+                if (tabla.Equals("directores")) directores[i] = new director(dr.GetInt32(0), (String)dr.GetValue(1), (String)dr.GetValue(2));
+                i++;
+            }
+            dr.Close();
+        }
+        private int cantidadDeRegistros(string tabla)
+        {
+            string comando = "select count(*) from " + tabla;
+            conexion.consultaDR(comando);
+            SqlDataReader dr = conexion.pDr;
+            dr.Read();
+            int cantidad = dr.GetInt32(0);
+            dr.Close();
+            return cantidad;
+        }
+        private void cargarCombo(ComboBox cmb, string nombreTabla)
+        {
+
+            DataTable dt = conexion.consultaDT("Select * from " + nombreTabla);
+            cmb.DataSource = dt;
+            cmb.ValueMember = dt.Columns[0].ColumnName;
+            cmb.DisplayMember = dt.Columns[1].ColumnName;
         }
         private genero getGenero(int id)
         {
@@ -176,13 +169,13 @@ namespace proyectoCine
             //nuevo
             activarFormulario(true);
             limpiarFormulario();
-            con.Open();
-            comand = new OleDbCommand("select max(cod_pelicula) from peliculas",con);
-            OleDbDataReader dr = comand.ExecuteReader();
+            
+            string comand = "select max(cod_pelicula) from peliculas";
+            conexion.consultaDR(comand);
+            SqlDataReader dr = conexion.pDr;
             dr.Read();
             txtId.Text = (dr.GetInt32(0)+1).ToString();
-            dr.Close();
-            con.Close();
+            conexion.desconectar();
             nuevo = true;
         }
 
@@ -220,11 +213,9 @@ namespace proyectoCine
                 if (DialogResult.OK== MessageBox.Show("¿Esta seguro que quiere eliminar esta pelicula?", "éxito", MessageBoxButtons.OKCancel))
                 {
                     int id = peliculas[lstPeliculas.SelectedIndex].pId;
-                    con.Open();
+                    
                     string comando = "delete * from peliculas where cod_pelicula=" + id.ToString();
-                    comand = new OleDbCommand(comando, con);
-                    comand.ExecuteNonQuery();
-                    con.Close();
+                    conexion.insert_update(comando);
                     cargarArreglos();
                     cargarListas();
                 }
@@ -300,10 +291,7 @@ namespace proyectoCine
                           p.pIdioma + "', sinopsis='" + p.pSinopsis + "', cod_genero=" + p.pGenero.pId + ", cod_director=" + p.pDirector.pId + ", calificacion=" +
                           p.pCalificacion + ", duracion=" + p.pDuracion + " where cod_pelicula="+ id;
             }
-            con.Open();
-            comand = new OleDbCommand(comando,con);
-            comand.ExecuteNonQuery();
-            con.Close();
+            conexion.insert_update(comando);
             MessageBox.Show("Pelicula" + accion + "correctamente", "éxito", MessageBoxButtons.OK);
             activarFormulario(false);
             cargarListas();
