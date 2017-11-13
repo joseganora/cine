@@ -72,5 +72,10 @@ namespace proyectoCine
         {
             new frmConsulta6().Show();
         }
+
+        private void aBMPeliculasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new abmPeliculas().ShowDialog();
+        }
     }
 }

@@ -4,29 +4,29 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Text;
-using System.Threading.Tasks;
+using System.Data.OleDb;
 
 namespace proyectoCine
 {
     class conexion
     {
-        string connectionString = "Data Source=PEPE-PC;Initial Catalog=CINE_TPI;Integrated Security=True"; 
-        SqlConnection connection;
-        SqlCommand comando;
-        SqlDataReader dr;
-        public SqlDataReader pDr
+        string connectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\PEPE\cine\cine-tp.accdb"; 
+        OleDbConnection connection;
+        OleDbCommand comando;
+        OleDbDataReader dr;
+        public OleDbDataReader pDr
         {
             get { return dr; }
             set { dr = value; }
         }  
         public conexion()
         {
-            connection = new SqlConnection(connectionString); 
+            connection = new OleDbConnection(connectionString); 
         }
         public conexion(string stringConn)
         {
             connectionString = stringConn;
-            connection = new SqlConnection(connectionString);
+            connection = new OleDbConnection(connectionString);
         }
         public bool verificarConexion()
         {
@@ -38,7 +38,7 @@ namespace proyectoCine
                 connection.Close();
                 
             }
-            catch(SqlException exc)
+            catch(Exception exc)
             {
 
             }
@@ -47,9 +47,9 @@ namespace proyectoCine
         }
         public DataTable consultaDT(string consulta)
         {
-            comando = new SqlCommand(consulta,connection);
+            comando = new OleDbCommand(consulta,connection);
             connection.Open();
-            SqlDataReader myReader = comando.ExecuteReader();
+            OleDbDataReader myReader = comando.ExecuteReader();
             DataTable dt = new DataTable();
             dt.Load(myReader);
             myReader.Close();
@@ -58,7 +58,7 @@ namespace proyectoCine
         }
         public void consultaDR(string consulta)
         {
-            comando = new SqlCommand(consulta, connection);
+            comando = new OleDbCommand(consulta, connection);
             if(connection.State != ConnectionState.Open) connection.Open();
             dr = comando.ExecuteReader();
 
@@ -70,7 +70,7 @@ namespace proyectoCine
         }
         public void insert_update(string consulta)
         {
-            comando = new SqlCommand(consulta, connection);
+            comando = new OleDbCommand(consulta, connection);
             connection.Open();
             comando.ExecuteNonQuery();
             connection.Close();

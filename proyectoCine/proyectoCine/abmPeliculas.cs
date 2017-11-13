@@ -7,20 +7,19 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using System.Data.Sql;
-using System.Data.SqlClient;
+using System.Data.OleDb;
 
 namespace proyectoCine
 {
-    
+
     public partial class abmPeliculas : Form
     {
-        conexion conexion;
-        pelicula[] peliculas;
-        director[] directores;
-        genero[] generos;
-        bool nuevo = false;
-        int contPeliculas = 0;
+        private conexion conexion;
+        private pelicula[] peliculas;
+        private director[] directores;
+        private genero[] generos;
+        private bool nuevo = false;
+        private int contPeliculas = 0;
         
         public abmPeliculas()
         {
@@ -28,7 +27,7 @@ namespace proyectoCine
             InitializeComponent();
             conexion = new conexion();
         }
-
+        
         private void abmPeliculas_Load(object sender, EventArgs e)
         {
             cargarArreglos();
@@ -43,7 +42,7 @@ namespace proyectoCine
             peliculas = new pelicula[cantidadDeRegistros("peliculas") + 50];
             string comando = "select * from peliculas order by titulo";
             conexion.consultaDR(comando);
-            SqlDataReader dr = conexion.pDr;
+            OleDbDataReader dr = conexion.pDr;
             contPeliculas = 0;
             while (dr.Read())
             {
@@ -68,7 +67,7 @@ namespace proyectoCine
             int cantidad = cantidadDeRegistros(tabla);
             string comando = "select * from " + tabla;
             conexion.consultaDR(comando);
-            SqlDataReader dr = conexion.pDr;
+            OleDbDataReader dr = conexion.pDr;
             int i = 0;
 
             if (tabla.Equals("generos")) generos = new genero[cantidad];
@@ -85,7 +84,7 @@ namespace proyectoCine
         {
             string comando = "select count(*) from " + tabla;
             conexion.consultaDR(comando);
-            SqlDataReader dr = conexion.pDr;
+            OleDbDataReader dr = conexion.pDr;
             dr.Read();
             int cantidad = dr.GetInt32(0);
             conexion.desconectar();
@@ -171,10 +170,11 @@ namespace proyectoCine
             
             string comand = "select max(cod_pelicula) from peliculas";
             conexion.consultaDR(comand);
-            SqlDataReader dr = conexion.pDr;
+            OleDbDataReader dr = conexion.pDr;
             dr.Read();
             txtId.Text = (dr.GetInt32(0)+1).ToString();
             conexion.desconectar();
+            txtTitulo.Focus();
             nuevo = true;
         }
 

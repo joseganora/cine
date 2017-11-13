@@ -38,6 +38,13 @@
             this.lblEstadoConexion = new System.Windows.Forms.Label();
             this.button1 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.menuStrip1 = new System.Windows.Forms.MenuStrip();
+            this.consultasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aBMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.informacionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.datosDelGrupoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aBMPeliculasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
             // btnConsulta1
@@ -147,12 +154,59 @@
             // 
             this.label1.Dock = System.Windows.Forms.DockStyle.Top;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(0, 0);
+            this.label1.Location = new System.Drawing.Point(0, 24);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(536, 49);
+            this.label1.Size = new System.Drawing.Size(536, 36);
             this.label1.TabIndex = 2;
             this.label1.Text = "CONSULTAS CINE";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
+            // 
+            // menuStrip1
+            // 
+            this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.consultasToolStripMenuItem,
+            this.aBMToolStripMenuItem,
+            this.informacionToolStripMenuItem});
+            this.menuStrip1.Location = new System.Drawing.Point(0, 0);
+            this.menuStrip1.Name = "menuStrip1";
+            this.menuStrip1.Size = new System.Drawing.Size(536, 24);
+            this.menuStrip1.TabIndex = 3;
+            this.menuStrip1.Text = "menuStrip1";
+            // 
+            // consultasToolStripMenuItem
+            // 
+            this.consultasToolStripMenuItem.Name = "consultasToolStripMenuItem";
+            this.consultasToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
+            this.consultasToolStripMenuItem.Text = "Consultas";
+            // 
+            // aBMToolStripMenuItem
+            // 
+            this.aBMToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.aBMPeliculasToolStripMenuItem});
+            this.aBMToolStripMenuItem.Name = "aBMToolStripMenuItem";
+            this.aBMToolStripMenuItem.Size = new System.Drawing.Size(45, 20);
+            this.aBMToolStripMenuItem.Text = "ABM";
+            // 
+            // informacionToolStripMenuItem
+            // 
+            this.informacionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.datosDelGrupoToolStripMenuItem});
+            this.informacionToolStripMenuItem.Name = "informacionToolStripMenuItem";
+            this.informacionToolStripMenuItem.Size = new System.Drawing.Size(84, 20);
+            this.informacionToolStripMenuItem.Text = "Informacion";
+            // 
+            // datosDelGrupoToolStripMenuItem
+            // 
+            this.datosDelGrupoToolStripMenuItem.Name = "datosDelGrupoToolStripMenuItem";
+            this.datosDelGrupoToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
+            this.datosDelGrupoToolStripMenuItem.Text = "Datos del grupo";
+            // 
+            // aBMPeliculasToolStripMenuItem
+            // 
+            this.aBMPeliculasToolStripMenuItem.Name = "aBMPeliculasToolStripMenuItem";
+            this.aBMPeliculasToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.aBMPeliculasToolStripMenuItem.Text = "ABM Peliculas";
+            this.aBMPeliculasToolStripMenuItem.Click += new System.EventHandler(this.aBMPeliculasToolStripMenuItem_Click);
             // 
             // frmPrincipal
             // 
@@ -170,9 +224,13 @@
             this.Controls.Add(this.btnConsulta3);
             this.Controls.Add(this.btnConsulta2);
             this.Controls.Add(this.btnConsulta1);
+            this.Controls.Add(this.menuStrip1);
+            this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.Name = "frmPrincipal";
             this.Text = "Menu principal";
+            this.menuStrip1.ResumeLayout(false);
+            this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -190,6 +248,12 @@
         private System.Windows.Forms.Label lblEstadoConexion;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.MenuStrip menuStrip1;
+        private System.Windows.Forms.ToolStripMenuItem consultasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aBMToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem aBMPeliculasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem informacionToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem datosDelGrupoToolStripMenuItem;
     }
 }
 
