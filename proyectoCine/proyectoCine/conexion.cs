@@ -10,10 +10,17 @@ namespace proyectoCine
 {
     class conexion
     {
-        string connectionString = @"Provider=Microsoft.ACE.OLEDB.12.0;Data Source=C:\Users\PEPE\cine\cine-tp.accdb"; 
+        string connectionString = @"Provider=SQLNCLI11;Data Source=PEPE-PC;Integrated Security=SSPI;Initial Catalog=CINE_TPI"; 
         OleDbConnection connection;
         OleDbCommand comando;
         OleDbDataReader dr;
+        string log;
+        public string pLog
+        {
+            get { return log;}
+            set { log = value; }
+        }
+        
         public OleDbDataReader pDr
         {
             get { return dr; }
@@ -40,7 +47,7 @@ namespace proyectoCine
             }
             catch(Exception exc)
             {
-
+                log = exc.ToString();
             }
             return band;
 

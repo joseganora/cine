@@ -18,12 +18,14 @@ namespace proyectoCine
             con = new conexion();
             InitializeComponent();
         }
-
+        void cargarConexion(conexion con)
+        {
+        }
         private void btnConsulta1_Click(object sender, EventArgs e)
         {
 
             
-                new frmConsulta1().Show();
+                new frmConsulta1().ShowDialog();
             
         }
 
@@ -45,37 +47,43 @@ namespace proyectoCine
             {
                 lblEstadoConexion.Text = "Desconectado";
                 lblEstadoConexion.ForeColor = Color.Red;
+                MessageBox.Show(con.pLog);
             }
         }
 
         private void btnConsulta3_Click(object sender, EventArgs e)
         {
-            new frmConsulta3().Show();
+            new frmConsulta3().ShowDialog();
         }
 
         private void btnConsulta2_Click(object sender, EventArgs e)
         {
-            new frmConsulta2().Show();
+            new frmConsulta2().ShowDialog();
         }
 
         private void btnConsulta4_Click(object sender, EventArgs e)
         {
-            new frmConsulta4().Show();
+            new frmConsulta4().ShowDialog();
         }
 
         private void btnConsulta5_Click(object sender, EventArgs e)
         {
-            new frmConsulta5().Show();
+            new frmConsulta5().ShowDialog();
         }
 
         private void btnConsulta6_Click(object sender, EventArgs e)
         {
-            new frmConsulta6().Show();
+            new frmConsulta6().ShowDialog();
         }
 
         private void aBMPeliculasToolStripMenuItem_Click(object sender, EventArgs e)
         {
             new abmPeliculas().ShowDialog();
+        }
+
+        private void frmPrincipal_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }

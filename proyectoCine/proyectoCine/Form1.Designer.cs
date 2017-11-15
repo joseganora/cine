@@ -6,7 +6,7 @@
         /// Variable del diseñador necesaria.
         /// </summary>
         private System.ComponentModel.IContainer components = null;
-
+        
         /// <summary>
         /// Limpiar los recursos que se estén usando.
         /// </summary>
@@ -41,9 +41,9 @@
             this.menuStrip1 = new System.Windows.Forms.MenuStrip();
             this.consultasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.aBMToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.aBMPeliculasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.informacionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.datosDelGrupoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.aBMPeliculasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -187,6 +187,13 @@
             this.aBMToolStripMenuItem.Size = new System.Drawing.Size(45, 20);
             this.aBMToolStripMenuItem.Text = "ABM";
             // 
+            // aBMPeliculasToolStripMenuItem
+            // 
+            this.aBMPeliculasToolStripMenuItem.Name = "aBMPeliculasToolStripMenuItem";
+            this.aBMPeliculasToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.aBMPeliculasToolStripMenuItem.Text = "ABM Peliculas";
+            this.aBMPeliculasToolStripMenuItem.Click += new System.EventHandler(this.aBMPeliculasToolStripMenuItem_Click);
+            // 
             // informacionToolStripMenuItem
             // 
             this.informacionToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
@@ -200,13 +207,6 @@
             this.datosDelGrupoToolStripMenuItem.Name = "datosDelGrupoToolStripMenuItem";
             this.datosDelGrupoToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.datosDelGrupoToolStripMenuItem.Text = "Datos del grupo";
-            // 
-            // aBMPeliculasToolStripMenuItem
-            // 
-            this.aBMPeliculasToolStripMenuItem.Name = "aBMPeliculasToolStripMenuItem";
-            this.aBMPeliculasToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
-            this.aBMPeliculasToolStripMenuItem.Text = "ABM Peliculas";
-            this.aBMPeliculasToolStripMenuItem.Click += new System.EventHandler(this.aBMPeliculasToolStripMenuItem_Click);
             // 
             // frmPrincipal
             // 
@@ -229,6 +229,7 @@
             this.MaximizeBox = false;
             this.Name = "frmPrincipal";
             this.Text = "Menu principal";
+            this.Load += new System.EventHandler(this.frmPrincipal_Load);
             this.menuStrip1.ResumeLayout(false);
             this.menuStrip1.PerformLayout();
             this.ResumeLayout(false);

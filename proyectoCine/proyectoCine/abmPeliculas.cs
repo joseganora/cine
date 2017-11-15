@@ -14,20 +14,18 @@ namespace proyectoCine
 
     public partial class abmPeliculas : Form
     {
-        private conexion conexion;
-        private pelicula[] peliculas;
-        private director[] directores;
-        private genero[] generos;
-        private bool nuevo = false;
-        private int contPeliculas = 0;
+        conexion conexion;
+        pelicula[] peliculas;
+        director[] directores;
+        genero[] generos;
+        bool nuevo = false;
+        int contPeliculas = 0;
         
         public abmPeliculas()
         {
-            
             InitializeComponent();
             conexion = new conexion();
         }
-        
         private void abmPeliculas_Load(object sender, EventArgs e)
         {
             cargarArreglos();
