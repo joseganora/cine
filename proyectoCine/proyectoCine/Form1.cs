@@ -25,7 +25,7 @@ namespace proyectoCine
         {
 
             
-                new frmConsulta1().ShowDialog();
+                new frmConsulta1(con).ShowDialog();
             
         }
 
@@ -53,32 +53,32 @@ namespace proyectoCine
 
         private void btnConsulta3_Click(object sender, EventArgs e)
         {
-            new frmConsulta3().ShowDialog();
+            new frmConsulta3(con).ShowDialog();
         }
 
         private void btnConsulta2_Click(object sender, EventArgs e)
         {
-            new frmConsulta2().ShowDialog();
+            new frmConsulta2(con).ShowDialog();
         }
 
         private void btnConsulta4_Click(object sender, EventArgs e)
         {
-            new frmConsulta4().ShowDialog();
+            new frmConsulta4(con).ShowDialog();
         }
 
         private void btnConsulta5_Click(object sender, EventArgs e)
         {
-            new frmConsulta5().ShowDialog();
+            new frmConsulta5(con).ShowDialog();
         }
 
         private void btnConsulta6_Click(object sender, EventArgs e)
         {
-            new frmConsulta6().ShowDialog();
+            new frmConsulta6(con).ShowDialog();
         }
 
         private void aBMPeliculasToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            new abmPeliculas().ShowDialog();
+            new abmPeliculas(con).ShowDialog();
         }
 
         private void frmPrincipal_Load(object sender, EventArgs e)

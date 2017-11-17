@@ -125,6 +125,7 @@
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "frmConsulta3";
             this.Text = "frmConsulta3";
+            this.Load += new System.EventHandler(this.frmConsulta3_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();
             this.groupBox1.ResumeLayout(false);

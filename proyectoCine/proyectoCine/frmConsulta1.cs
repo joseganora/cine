@@ -22,9 +22,13 @@ namespace proyectoCine
         public frmConsulta1()
         {
             InitializeComponent();
+        }
+        public frmConsulta1(conexion c) : this()
+        {
             campos = "nom_cliente+', '+ape_cliente Cliente, fecha_nac 'Fecha de Nacimiento', sexo Sexo, b.barrio Barrio, direccion Direccion, nro_tel Teléfono, mail Mail";
             agruparPor = "";
             condicion = "";
+            con = c;
         }
         private void consulta()
         {
@@ -94,7 +98,6 @@ namespace proyectoCine
         }
         private void frmConsulta1_Load(object sender, EventArgs e)
         {
-            con = new conexion();
             dgDatos.Columns.Add(cargarSexo());
             consulta();
             cargarBarrios();

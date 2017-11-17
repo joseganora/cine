@@ -57,6 +57,8 @@
             this.btnCancelar = new System.Windows.Forms.Button();
             this.button6 = new System.Windows.Forms.Button();
             this.label1 = new System.Windows.Forms.Label();
+            this.label13 = new System.Windows.Forms.Label();
+            this.txtPelicula = new System.Windows.Forms.TextBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -65,9 +67,9 @@
             this.lstPeliculas.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lstPeliculas.FormattingEnabled = true;
             this.lstPeliculas.ItemHeight = 20;
-            this.lstPeliculas.Location = new System.Drawing.Point(330, 56);
+            this.lstPeliculas.Location = new System.Drawing.Point(330, 96);
             this.lstPeliculas.Name = "lstPeliculas";
-            this.lstPeliculas.Size = new System.Drawing.Size(302, 344);
+            this.lstPeliculas.Size = new System.Drawing.Size(302, 304);
             this.lstPeliculas.TabIndex = 5;
             // 
             // groupBox1
@@ -108,6 +110,7 @@
             // 
             // cbxCalificacion
             // 
+            this.cbxCalificacion.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxCalificacion.Items.AddRange(new object[] {
             "1",
             "2",
@@ -121,6 +124,7 @@
             // 
             // cbxDirector
             // 
+            this.cbxDirector.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxDirector.Location = new System.Drawing.Point(111, 258);
             this.cbxDirector.Name = "cbxDirector";
             this.cbxDirector.Size = new System.Drawing.Size(183, 21);
@@ -128,6 +132,7 @@
             // 
             // cbxGenero
             // 
+            this.cbxGenero.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxGenero.Location = new System.Drawing.Point(111, 229);
             this.cbxGenero.Name = "cbxGenero";
             this.cbxGenero.Size = new System.Drawing.Size(183, 21);
@@ -135,6 +140,7 @@
             // 
             // cbxIdioma
             // 
+            this.cbxIdioma.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
             this.cbxIdioma.Items.AddRange(new object[] {
             "INGLES",
             "ESPAÑOL",
@@ -366,6 +372,24 @@
             this.label1.TabIndex = 3;
             this.label1.Text = "ABM PELICULAS";
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label13.Location = new System.Drawing.Point(330, 69);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(63, 20);
+            this.label13.TabIndex = 0;
+            this.label13.Text = "Buscar:";
+            // 
+            // txtPelicula
+            // 
+            this.txtPelicula.Location = new System.Drawing.Point(399, 69);
+            this.txtPelicula.Name = "txtPelicula";
+            this.txtPelicula.Size = new System.Drawing.Size(233, 20);
+            this.txtPelicula.TabIndex = 1;
+            this.txtPelicula.TextChanged += new System.EventHandler(this.txtPelicula_TextChanged);
+            // 
             // abmPeliculas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -378,8 +402,10 @@
             this.Controls.Add(this.btnBorrar);
             this.Controls.Add(this.btnEditar);
             this.Controls.Add(this.btnNuevo);
+            this.Controls.Add(this.txtPelicula);
             this.Controls.Add(this.groupBox1);
             this.Controls.Add(this.lstPeliculas);
+            this.Controls.Add(this.label13);
             this.Name = "abmPeliculas";
             this.Text = "abmPeliculas";
             this.Load += new System.EventHandler(this.abmPeliculas_Load);
@@ -421,5 +447,7 @@
         private System.Windows.Forms.ComboBox cbxCalificacion;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.Label label13;
+        private System.Windows.Forms.TextBox txtPelicula;
     }
 }

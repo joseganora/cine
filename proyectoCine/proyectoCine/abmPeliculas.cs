@@ -24,7 +24,10 @@ namespace proyectoCine
         public abmPeliculas()
         {
             InitializeComponent();
-            conexion = new conexion();
+        }
+        public abmPeliculas(conexion con) :this()
+        {
+            conexion = con;
         }
         private void abmPeliculas_Load(object sender, EventArgs e)
         {
@@ -36,16 +39,21 @@ namespace proyectoCine
         {
             cargarArregloAuxiliar("generos");
             cargarArregloAuxiliar("directores");
-            
+            cargarArregloPeliculas("");
+        }
+        private void cargarArregloPeliculas(string filtro)
+        {
             peliculas = new pelicula[cantidadDeRegistros("peliculas") + 50];
-            string comando = "select * from peliculas order by titulo";
+            string comando="";
+            comando = "select * from peliculas where upper(titulo)+convert(varchar(5),year(fecha_estreno))  like '%'+upper('" + filtro+ "')+'%' order by titulo";
+            
             conexion.consultaDR(comando);
             OleDbDataReader dr = conexion.pDr;
             contPeliculas = 0;
             while (dr.Read())
             {
                 pelicula p = new pelicula();
-                if(!dr.IsDBNull(0)) p.pId = dr.GetInt32(0);
+                if (!dr.IsDBNull(0)) p.pId = dr.GetInt32(0);
                 if (!dr.IsDBNull(1)) p.pTitulo = (string)dr.GetValue(1);
                 if (!dr.IsDBNull(2)) p.pEstreno = (DateTime)dr.GetValue(2);
                 if (!dr.IsDBNull(3)) p.pIdioma = (string)dr.GetValue(3);
@@ -58,7 +66,6 @@ namespace proyectoCine
                 contPeliculas++;
             }
             conexion.desconectar();
-
         }
         private void cargarArregloAuxiliar(string tabla)
         {
@@ -249,6 +256,7 @@ namespace proyectoCine
         private void button4_Click(object sender, EventArgs e)
         {
             //guardar
+            if (verificacionTexto(txtTitulo,label3)&&verificacionCombobox(cbxIdioma,label5) && verificacionCombobox(cbxGenero, label7) && verificacionCombobox(cbxDirector, label8) && verificacionCombobox(cbxCalificacion, label9)&& verificacionNumerica(txtDuracion, label10)) { 
             string comando = "";
             string accion;
             if (nuevo)
@@ -293,8 +301,38 @@ namespace proyectoCine
             activarFormulario(false);
             cargarListas();
             limpiarFormulario();
+            }
         }
-
+        private bool verificacionTexto(TextBox t,Label l)
+        {
+            if (t.Text.Equals(""))
+            {
+                MessageBox.Show("El campo " + l.Text + " debe ser rellenado obligatoriamente");
+                return false;
+            }
+            return true;
+        }
+        private bool verificacionNumerica(TextBox t,Label l)
+        {
+            try
+            {
+                Convert.ToInt32(t);
+                return true;
+            }catch(Exception exc)
+            {
+                MessageBox.Show("El campo "+l.Text+" solo acepta numeros. No incluya caracteres no numericos.");
+                return false;
+            }
+        }
+        private bool verificacionCombobox(ComboBox c, Label l)
+        {
+            if (c.SelectedIndex == -1)
+            {
+                MessageBox.Show("Es obligatorio llenar el campo " + l.Text );
+                return false;
+            }
+            return true;
+        }
         private void button5_Click(object sender, EventArgs e)
         {
             //cancelar
@@ -305,6 +343,12 @@ namespace proyectoCine
         private void button6_Click(object sender, EventArgs e)
         {
             this.Close();
+        }
+
+        private void txtPelicula_TextChanged(object sender, EventArgs e)
+        {
+            cargarArregloPeliculas(txtPelicula.Text);
+            cargarListas();
         }
     }
 }

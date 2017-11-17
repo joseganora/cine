@@ -12,11 +12,15 @@ namespace proyectoCine
 {
     public partial class frmConsulta2 : Form
     {
+        conexion con;
         public frmConsulta2()
         {
             InitializeComponent();
         }
-
+        public frmConsulta2(conexion c):this()
+        {
+            con = c;
+        }
         private void tableLayoutPanel1_Paint(object sender, PaintEventArgs e)
         {
 
