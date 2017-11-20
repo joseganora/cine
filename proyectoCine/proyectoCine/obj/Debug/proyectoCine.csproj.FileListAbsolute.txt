@@ -73,4 +73,4 @@ C:\Users\PEPE\cine\proyectoCine\proyectoCine\bin\Debug\pt\Microsoft.ReportViewer
 C:\Users\PEPE\cine\proyectoCine\proyectoCine\bin\Debug\ru\Microsoft.ReportViewer.WinForms.resources.dll
 C:\Users\PEPE\cine\proyectoCine\proyectoCine\bin\Debug\zh-CHS\Microsoft.ReportViewer.WinForms.resources.dll
 C:\Users\PEPE\cine\proyectoCine\proyectoCine\bin\Debug\zh-CHT\Microsoft.ReportViewer.WinForms.resources.dll
-C:\Users\PEPE\cine\proyectoCine\proyectoCine\obj\Debug\proyectoCine.reporte.resources
+C:\Users\PEPE\cine\proyectoCine\proyectoCine\obj\Debug\proyectoCine.frmDatosDelGrupo.resources

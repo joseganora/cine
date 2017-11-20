@@ -119,6 +119,12 @@
     <Compile Include="frmConsulta6.Designer.cs">
       <DependentUpon>frmConsulta6.cs</DependentUpon>
     </Compile>
+    <Compile Include="frmDatosDelGrupo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="frmDatosDelGrupo.Designer.cs">
+      <DependentUpon>frmDatosDelGrupo.cs</DependentUpon>
+    </Compile>
     <Compile Include="genero.cs" />
     <Compile Include="pelicula.cs" />
     <Compile Include="Program.cs" />
@@ -147,6 +153,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="frmConsulta6.resx">
       <DependentUpon>frmConsulta6.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="frmDatosDelGrupo.resx">
+      <DependentUpon>frmDatosDelGrupo.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

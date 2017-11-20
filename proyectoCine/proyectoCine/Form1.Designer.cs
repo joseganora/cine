@@ -44,6 +44,9 @@
             this.aBMPeliculasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.informacionToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.datosDelGrupoToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.clientesToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.reservasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.películasToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -55,7 +58,7 @@
             this.btnConsulta1.Name = "btnConsulta1";
             this.btnConsulta1.Size = new System.Drawing.Size(146, 32);
             this.btnConsulta1.TabIndex = 0;
-            this.btnConsulta1.Text = "Consultar...";
+            this.btnConsulta1.Text = "Clientes";
             this.btnConsulta1.UseVisualStyleBackColor = true;
             this.btnConsulta1.Click += new System.EventHandler(this.btnConsulta1_Click);
             // 
@@ -67,7 +70,7 @@
             this.btnConsulta2.Name = "btnConsulta2";
             this.btnConsulta2.Size = new System.Drawing.Size(146, 32);
             this.btnConsulta2.TabIndex = 0;
-            this.btnConsulta2.Text = "Consultar...";
+            this.btnConsulta2.Text = "Reservas";
             this.btnConsulta2.UseVisualStyleBackColor = true;
             this.btnConsulta2.Click += new System.EventHandler(this.btnConsulta2_Click);
             // 
@@ -79,7 +82,7 @@
             this.btnConsulta3.Name = "btnConsulta3";
             this.btnConsulta3.Size = new System.Drawing.Size(146, 32);
             this.btnConsulta3.TabIndex = 0;
-            this.btnConsulta3.Text = "Consultar...";
+            this.btnConsulta3.Text = "Películas";
             this.btnConsulta3.UseVisualStyleBackColor = true;
             this.btnConsulta3.Click += new System.EventHandler(this.btnConsulta3_Click);
             // 
@@ -175,6 +178,10 @@
             // 
             // consultasToolStripMenuItem
             // 
+            this.consultasToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.clientesToolStripMenuItem,
+            this.reservasToolStripMenuItem,
+            this.películasToolStripMenuItem});
             this.consultasToolStripMenuItem.Name = "consultasToolStripMenuItem";
             this.consultasToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
             this.consultasToolStripMenuItem.Text = "Consultas";
@@ -207,6 +214,27 @@
             this.datosDelGrupoToolStripMenuItem.Name = "datosDelGrupoToolStripMenuItem";
             this.datosDelGrupoToolStripMenuItem.Size = new System.Drawing.Size(158, 22);
             this.datosDelGrupoToolStripMenuItem.Text = "Datos del grupo";
+            this.datosDelGrupoToolStripMenuItem.Click += new System.EventHandler(this.datosDelGrupoToolStripMenuItem_Click);
+            // 
+            // clientesToolStripMenuItem
+            // 
+            this.clientesToolStripMenuItem.Name = "clientesToolStripMenuItem";
+            this.clientesToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.clientesToolStripMenuItem.Text = "Clientes";
+            // 
+            // reservasToolStripMenuItem
+            // 
+            this.reservasToolStripMenuItem.Name = "reservasToolStripMenuItem";
+            this.reservasToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.reservasToolStripMenuItem.Text = "Reservas";
+            this.reservasToolStripMenuItem.Click += new System.EventHandler(this.reservasToolStripMenuItem_Click);
+            // 
+            // películasToolStripMenuItem
+            // 
+            this.películasToolStripMenuItem.Name = "películasToolStripMenuItem";
+            this.películasToolStripMenuItem.Size = new System.Drawing.Size(152, 22);
+            this.películasToolStripMenuItem.Text = "Películas";
+            this.películasToolStripMenuItem.Click += new System.EventHandler(this.películasToolStripMenuItem_Click);
             // 
             // frmPrincipal
             // 
@@ -255,6 +283,9 @@
         private System.Windows.Forms.ToolStripMenuItem aBMPeliculasToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem informacionToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem datosDelGrupoToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem clientesToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem reservasToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem películasToolStripMenuItem;
     }
 }
 

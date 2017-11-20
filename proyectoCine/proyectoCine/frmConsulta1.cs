@@ -274,9 +274,9 @@ namespace proyectoCine
                         xPadding = (width - size.Width) / 2;
                         if (row[i].GetType() == typeof(DateTime))
                         {
-                            size = g.MeasureString(((DateTime)row[i]).ToString("dd/mm/yyyy"), font);
+                            size = g.MeasureString(((DateTime)row[i]).ToString("dd/MM/yyyy"), font);
                             xPadding = (width - size.Width) / 2;
-                            g.DrawString(((DateTime)row[i]).ToString("dd/mm/yyyy"), font, brush, x + xPadding, y + 5);
+                            g.DrawString(((DateTime)row[i]).ToString("dd/MM/yyyy"), font, brush, x + xPadding, y + 5);
                         }
                         else if (row[i].GetType() == typeof(bool))
                         {

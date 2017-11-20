@@ -85,5 +85,20 @@ namespace proyectoCine
         {
 
         }
+
+        private void datosDelGrupoToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new frmDatosDelGrupo().ShowDialog();
+        }
+
+        private void reservasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new frmConsulta2().ShowDialog();
+        }
+
+        private void películasToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            new frmConsulta3(con).ShowDialog();
+        }
     }
 }
