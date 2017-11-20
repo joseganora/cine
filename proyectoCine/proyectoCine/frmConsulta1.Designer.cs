@@ -28,21 +28,25 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmConsulta1));
             this.dgDatos = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.txtNombre = new System.Windows.Forms.TextBox();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.cbxAgruparBarrio = new System.Windows.Forms.CheckBox();
-            this.label4 = new System.Windows.Forms.Label();
-            this.cboBarrios = new System.Windows.Forms.ComboBox();
-            this.label5 = new System.Windows.Forms.Label();
-            this.checkBox2 = new System.Windows.Forms.CheckBox();
-            this.checkBox3 = new System.Windows.Forms.CheckBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.cbxTieneReserva = new System.Windows.Forms.CheckBox();
+            this.cbxUltimaCompra = new System.Windows.Forms.CheckBox();
+            this.cboBarrios = new System.Windows.Forms.ComboBox();
             this.cbxSexo = new System.Windows.Forms.CheckBox();
+            this.cbxAgruparBarrio = new System.Windows.Forms.CheckBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label4 = new System.Windows.Forms.Label();
+            this.printDocument1 = new System.Drawing.Printing.PrintDocument();
+            this.pageSetupDialog1 = new System.Windows.Forms.PageSetupDialog();
+            this.printPreviewDialog1 = new System.Windows.Forms.PrintPreviewDialog();
             ((System.ComponentModel.ISupportInitialize)(this.dgDatos)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.groupBox1.SuspendLayout();
@@ -119,8 +123,8 @@
             // 
             this.groupBox1.BackgroundImageLayout = System.Windows.Forms.ImageLayout.None;
             this.groupBox1.Controls.Add(this.button1);
-            this.groupBox1.Controls.Add(this.checkBox3);
-            this.groupBox1.Controls.Add(this.checkBox2);
+            this.groupBox1.Controls.Add(this.cbxTieneReserva);
+            this.groupBox1.Controls.Add(this.cbxUltimaCompra);
             this.groupBox1.Controls.Add(this.cboBarrios);
             this.groupBox1.Controls.Add(this.cbxSexo);
             this.groupBox1.Controls.Add(this.cbxAgruparBarrio);
@@ -139,15 +143,63 @@
             this.groupBox1.TabStop = false;
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
             // 
-            // label3
+            // button1
             // 
-            this.label3.AutoSize = true;
-            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(566, 24);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(185, 24);
-            this.label3.TabIndex = 2;
-            this.label3.Text = "Cantidad de clientes:";
+            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.button1.Location = new System.Drawing.Point(922, 32);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(120, 49);
+            this.button1.TabIndex = 7;
+            this.button1.Text = "Imprimir Informe";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            // 
+            // cbxTieneReserva
+            // 
+            this.cbxTieneReserva.AutoSize = true;
+            this.cbxTieneReserva.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxTieneReserva.Location = new System.Drawing.Point(396, 66);
+            this.cbxTieneReserva.Name = "cbxTieneReserva";
+            this.cbxTieneReserva.Size = new System.Drawing.Size(130, 24);
+            this.cbxTieneReserva.TabIndex = 6;
+            this.cbxTieneReserva.Text = "Tiene Reserva";
+            this.cbxTieneReserva.UseVisualStyleBackColor = true;
+            this.cbxTieneReserva.CheckedChanged += new System.EventHandler(this.checkBox3_CheckedChanged);
+            // 
+            // cbxUltimaCompra
+            // 
+            this.cbxUltimaCompra.AutoSize = true;
+            this.cbxUltimaCompra.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxUltimaCompra.Location = new System.Drawing.Point(396, 29);
+            this.cbxUltimaCompra.Name = "cbxUltimaCompra";
+            this.cbxUltimaCompra.Size = new System.Drawing.Size(133, 24);
+            this.cbxUltimaCompra.TabIndex = 6;
+            this.cbxUltimaCompra.Text = "Ultima Compra";
+            this.cbxUltimaCompra.UseVisualStyleBackColor = true;
+            this.cbxUltimaCompra.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
+            // 
+            // cboBarrios
+            // 
+            this.cboBarrios.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
+            this.cboBarrios.FormattingEnabled = true;
+            this.cboBarrios.ImeMode = System.Windows.Forms.ImeMode.NoControl;
+            this.cboBarrios.Location = new System.Drawing.Point(105, 65);
+            this.cboBarrios.Name = "cboBarrios";
+            this.cboBarrios.Size = new System.Drawing.Size(121, 21);
+            this.cboBarrios.TabIndex = 5;
+            this.cboBarrios.SelectedIndexChanged += new System.EventHandler(this.cboBarrios_SelectedIndexChanged);
+            // 
+            // cbxSexo
+            // 
+            this.cbxSexo.AutoSize = true;
+            this.cbxSexo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbxSexo.Location = new System.Drawing.Point(757, 65);
+            this.cbxSexo.Name = "cbxSexo";
+            this.cbxSexo.Size = new System.Drawing.Size(92, 24);
+            this.cbxSexo.TabIndex = 4;
+            this.cbxSexo.Text = "Por Sexo";
+            this.cbxSexo.UseVisualStyleBackColor = true;
+            this.cbxSexo.CheckedChanged += new System.EventHandler(this.cbxSexo_CheckedChanged);
             // 
             // cbxAgruparBarrio
             // 
@@ -161,27 +213,15 @@
             this.cbxAgruparBarrio.UseVisualStyleBackColor = true;
             this.cbxAgruparBarrio.CheckedChanged += new System.EventHandler(this.cbxAgruparBarrio_CheckedChanged);
             // 
-            // label4
+            // label3
             // 
-            this.label4.AutoSize = true;
-            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(15, 64);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(64, 24);
-            this.label4.TabIndex = 2;
-            this.label4.Text = "Barrio:";
-            this.label4.Click += new System.EventHandler(this.label2_Click);
-            // 
-            // cboBarrios
-            // 
-            this.cboBarrios.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cboBarrios.FormattingEnabled = true;
-            this.cboBarrios.ImeMode = System.Windows.Forms.ImeMode.NoControl;
-            this.cboBarrios.Location = new System.Drawing.Point(105, 65);
-            this.cboBarrios.Name = "cboBarrios";
-            this.cboBarrios.Size = new System.Drawing.Size(121, 21);
-            this.cboBarrios.TabIndex = 5;
-            this.cboBarrios.SelectedIndexChanged += new System.EventHandler(this.cboBarrios_SelectedIndexChanged);
+            this.label3.AutoSize = true;
+            this.label3.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label3.Location = new System.Drawing.Point(566, 24);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(185, 24);
+            this.label3.TabIndex = 2;
+            this.label3.Text = "Cantidad de clientes:";
             // 
             // label5
             // 
@@ -194,52 +234,30 @@
             this.label5.Text = "Campos extra:";
             this.label5.Click += new System.EventHandler(this.label2_Click);
             // 
-            // checkBox2
+            // label4
             // 
-            this.checkBox2.AutoSize = true;
-            this.checkBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox2.Location = new System.Drawing.Point(396, 29);
-            this.checkBox2.Name = "checkBox2";
-            this.checkBox2.Size = new System.Drawing.Size(133, 24);
-            this.checkBox2.TabIndex = 6;
-            this.checkBox2.Text = "Ultima Compra";
-            this.checkBox2.UseVisualStyleBackColor = true;
-            this.checkBox2.CheckedChanged += new System.EventHandler(this.checkBox2_CheckedChanged);
+            this.label4.AutoSize = true;
+            this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label4.Location = new System.Drawing.Point(15, 64);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(64, 24);
+            this.label4.TabIndex = 2;
+            this.label4.Text = "Barrio:";
+            this.label4.Click += new System.EventHandler(this.label2_Click);
             // 
-            // checkBox3
+            // printDocument1
             // 
-            this.checkBox3.AutoSize = true;
-            this.checkBox3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.checkBox3.Location = new System.Drawing.Point(396, 66);
-            this.checkBox3.Name = "checkBox3";
-            this.checkBox3.Size = new System.Drawing.Size(130, 24);
-            this.checkBox3.TabIndex = 6;
-            this.checkBox3.Text = "Tiene Reserva";
-            this.checkBox3.UseVisualStyleBackColor = true;
-            this.checkBox3.CheckedChanged += new System.EventHandler(this.checkBox3_CheckedChanged);
+            this.printDocument1.PrintPage += new System.Drawing.Printing.PrintPageEventHandler(this.printDocument1_PrintPage);
             // 
-            // button1
+            // printPreviewDialog1
             // 
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(901, 29);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(120, 49);
-            this.button1.TabIndex = 7;
-            this.button1.Text = "Imprimir Informe";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
-            // 
-            // cbxSexo
-            // 
-            this.cbxSexo.AutoSize = true;
-            this.cbxSexo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.cbxSexo.Location = new System.Drawing.Point(757, 65);
-            this.cbxSexo.Name = "cbxSexo";
-            this.cbxSexo.Size = new System.Drawing.Size(92, 24);
-            this.cbxSexo.TabIndex = 4;
-            this.cbxSexo.Text = "Por Sexo";
-            this.cbxSexo.UseVisualStyleBackColor = true;
-            this.cbxSexo.CheckedChanged += new System.EventHandler(this.cbxSexo_CheckedChanged);
+            this.printPreviewDialog1.AutoScrollMargin = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.AutoScrollMinSize = new System.Drawing.Size(0, 0);
+            this.printPreviewDialog1.ClientSize = new System.Drawing.Size(400, 300);
+            this.printPreviewDialog1.Enabled = true;
+            this.printPreviewDialog1.Icon = ((System.Drawing.Icon)(resources.GetObject("printPreviewDialog1.Icon")));
+            this.printPreviewDialog1.Name = "printPreviewDialog1";
+            this.printPreviewDialog1.Visible = false;
             // 
             // frmConsulta1
             // 
@@ -270,12 +288,15 @@
         private System.Windows.Forms.GroupBox groupBox1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.CheckBox cbxAgruparBarrio;
-        private System.Windows.Forms.CheckBox checkBox3;
-        private System.Windows.Forms.CheckBox checkBox2;
+        private System.Windows.Forms.CheckBox cbxTieneReserva;
+        private System.Windows.Forms.CheckBox cbxUltimaCompra;
         private System.Windows.Forms.ComboBox cboBarrios;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.CheckBox cbxSexo;
+        private System.Drawing.Printing.PrintDocument printDocument1;
+        private System.Windows.Forms.PageSetupDialog pageSetupDialog1;
+        private System.Windows.Forms.PrintPreviewDialog printPreviewDialog1;
     }
 }

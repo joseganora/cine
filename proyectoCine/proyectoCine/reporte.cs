@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Microsoft.Reporting.WinForms;
+using System;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -12,15 +13,21 @@ namespace proyectoCine
 {
     public partial class reporte : Form
     {
+        string nombre;
+        DataTable dt;
         public reporte()
         {
             InitializeComponent();
         }
-
+        public reporte(string nom,DataTable dt) : this()
+        {
+            nombre = nom;
+            this.dt = dt;
+        }
         private void reporte_Load(object sender, EventArgs e)
         {
 
-            this.reportViewer1.RefreshReport();
+
         }
     }
 }
