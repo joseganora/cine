@@ -66,7 +66,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 130F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(861, 591);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1112, 591);
             this.tableLayoutPanel1.TabIndex = 6;
             this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint);
             // 
@@ -88,7 +88,7 @@
             this.groupBox1.Location = new System.Drawing.Point(20, 40);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(20, 10, 20, 10);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(821, 110);
+            this.groupBox1.Size = new System.Drawing.Size(1072, 110);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filtros";
@@ -122,7 +122,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(692, 29);
+            this.button1.Location = new System.Drawing.Point(598, 30);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(109, 55);
             this.button1.TabIndex = 8;
@@ -238,7 +238,7 @@
             this.dgDatos.Margin = new System.Windows.Forms.Padding(20, 10, 20, 10);
             this.dgDatos.Name = "dgDatos";
             this.dgDatos.ReadOnly = true;
-            this.dgDatos.Size = new System.Drawing.Size(821, 468);
+            this.dgDatos.Size = new System.Drawing.Size(1072, 468);
             this.dgDatos.TabIndex = 0;
             // 
             // label1
@@ -249,7 +249,7 @@
             this.label1.Location = new System.Drawing.Point(3, 5);
             this.label1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(855, 20);
+            this.label1.Size = new System.Drawing.Size(1106, 20);
             this.label1.TabIndex = 1;
             this.label1.Text = "RESERVAS";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -272,10 +272,11 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(861, 591);
+            this.ClientSize = new System.Drawing.Size(1112, 591);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "frmConsulta2";
             this.Text = "frmConsulta2";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmConsulta2_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();

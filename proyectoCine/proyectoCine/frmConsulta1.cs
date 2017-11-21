@@ -172,6 +172,7 @@ namespace proyectoCine
         {
             printPreviewDialog1.Document = printDocument1;
             printPreviewDialog1.ClientSize = new System.Drawing.Size(Screen.PrimaryScreen.WorkingArea.Width, Screen.PrimaryScreen.WorkingArea.Height);
+            printPreviewDialog1.PrintPreviewControl.Zoom = 150 / 100f;
             printPreviewDialog1.ShowDialog();
         }
 

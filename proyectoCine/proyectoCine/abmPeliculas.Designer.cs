@@ -177,7 +177,7 @@
             // txtId
             // 
             this.txtId.Enabled = false;
-            this.txtId.Location = new System.Drawing.Point(111, 35);
+            this.txtId.Location = new System.Drawing.Point(111, 32);
             this.txtId.Name = "txtId";
             this.txtId.Size = new System.Drawing.Size(45, 20);
             this.txtId.TabIndex = 0;
@@ -186,7 +186,7 @@
             // 
             this.label12.AutoSize = true;
             this.label12.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label12.Location = new System.Drawing.Point(162, 36);
+            this.label12.Location = new System.Drawing.Point(162, 32);
             this.label12.Name = "label12";
             this.label12.Size = new System.Drawing.Size(86, 16);
             this.label12.TabIndex = 0;
@@ -290,7 +290,7 @@
             // 
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(18, 38);
+            this.label2.Location = new System.Drawing.Point(18, 32);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(23, 20);
             this.label2.TabIndex = 0;

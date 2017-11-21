@@ -54,7 +54,7 @@
             // 
             this.btnConsulta1.Enabled = false;
             this.btnConsulta1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConsulta1.Location = new System.Drawing.Point(28, 63);
+            this.btnConsulta1.Location = new System.Drawing.Point(28, 83);
             this.btnConsulta1.Name = "btnConsulta1";
             this.btnConsulta1.Size = new System.Drawing.Size(146, 32);
             this.btnConsulta1.TabIndex = 0;
@@ -66,7 +66,7 @@
             // 
             this.btnConsulta2.Enabled = false;
             this.btnConsulta2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConsulta2.Location = new System.Drawing.Point(28, 110);
+            this.btnConsulta2.Location = new System.Drawing.Point(28, 130);
             this.btnConsulta2.Name = "btnConsulta2";
             this.btnConsulta2.Size = new System.Drawing.Size(146, 32);
             this.btnConsulta2.TabIndex = 0;
@@ -78,7 +78,7 @@
             // 
             this.btnConsulta3.Enabled = false;
             this.btnConsulta3.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConsulta3.Location = new System.Drawing.Point(186, 63);
+            this.btnConsulta3.Location = new System.Drawing.Point(186, 83);
             this.btnConsulta3.Name = "btnConsulta3";
             this.btnConsulta3.Size = new System.Drawing.Size(146, 32);
             this.btnConsulta3.TabIndex = 0;
@@ -90,11 +90,11 @@
             // 
             this.btnConsulta4.Enabled = false;
             this.btnConsulta4.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConsulta4.Location = new System.Drawing.Point(186, 110);
+            this.btnConsulta4.Location = new System.Drawing.Point(186, 130);
             this.btnConsulta4.Name = "btnConsulta4";
             this.btnConsulta4.Size = new System.Drawing.Size(146, 32);
             this.btnConsulta4.TabIndex = 0;
-            this.btnConsulta4.Text = "Consultar...";
+            this.btnConsulta4.Text = "Ventas";
             this.btnConsulta4.UseVisualStyleBackColor = true;
             this.btnConsulta4.Click += new System.EventHandler(this.btnConsulta4_Click);
             // 
@@ -102,11 +102,11 @@
             // 
             this.btnConsulta5.Enabled = false;
             this.btnConsulta5.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConsulta5.Location = new System.Drawing.Point(357, 63);
+            this.btnConsulta5.Location = new System.Drawing.Point(357, 83);
             this.btnConsulta5.Name = "btnConsulta5";
             this.btnConsulta5.Size = new System.Drawing.Size(146, 32);
             this.btnConsulta5.TabIndex = 0;
-            this.btnConsulta5.Text = "Consultar...";
+            this.btnConsulta5.Text = "Funciones";
             this.btnConsulta5.UseVisualStyleBackColor = true;
             this.btnConsulta5.Click += new System.EventHandler(this.btnConsulta5_Click);
             // 
@@ -114,11 +114,11 @@
             // 
             this.btnConsulta6.Enabled = false;
             this.btnConsulta6.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConsulta6.Location = new System.Drawing.Point(357, 110);
+            this.btnConsulta6.Location = new System.Drawing.Point(357, 130);
             this.btnConsulta6.Name = "btnConsulta6";
             this.btnConsulta6.Size = new System.Drawing.Size(146, 32);
             this.btnConsulta6.TabIndex = 0;
-            this.btnConsulta6.Text = "Consultar...";
+            this.btnConsulta6.Text = "Salas";
             this.btnConsulta6.UseVisualStyleBackColor = true;
             this.btnConsulta6.Click += new System.EventHandler(this.btnConsulta6_Click);
             // 
@@ -126,7 +126,7 @@
             // 
             this.lblConexion.AutoSize = true;
             this.lblConexion.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblConexion.Location = new System.Drawing.Point(71, 182);
+            this.lblConexion.Location = new System.Drawing.Point(71, 202);
             this.lblConexion.Name = "lblConexion";
             this.lblConexion.Size = new System.Drawing.Size(231, 25);
             this.lblConexion.TabIndex = 1;
@@ -137,7 +137,7 @@
             this.lblEstadoConexion.AutoSize = true;
             this.lblEstadoConexion.Font = new System.Drawing.Font("Microsoft Sans Serif", 15.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.lblEstadoConexion.ForeColor = System.Drawing.Color.Red;
-            this.lblEstadoConexion.Location = new System.Drawing.Point(308, 182);
+            this.lblEstadoConexion.Location = new System.Drawing.Point(308, 202);
             this.lblEstadoConexion.Name = "lblEstadoConexion";
             this.lblEstadoConexion.Size = new System.Drawing.Size(0, 25);
             this.lblEstadoConexion.TabIndex = 1;
@@ -145,7 +145,7 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(186, 226);
+            this.button1.Location = new System.Drawing.Point(186, 246);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(146, 32);
             this.button1.TabIndex = 0;
@@ -157,22 +157,23 @@
             // 
             this.label1.Dock = System.Windows.Forms.DockStyle.Top;
             this.label1.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.Location = new System.Drawing.Point(0, 24);
+            this.label1.Location = new System.Drawing.Point(0, 29);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(536, 36);
+            this.label1.Size = new System.Drawing.Size(536, 49);
             this.label1.TabIndex = 2;
             this.label1.Text = "CONSULTAS CINE";
             this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // menuStrip1
             // 
+            this.menuStrip1.Font = new System.Drawing.Font("Segoe UI", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.menuStrip1.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.consultasToolStripMenuItem,
             this.aBMToolStripMenuItem,
             this.informacionToolStripMenuItem});
             this.menuStrip1.Location = new System.Drawing.Point(0, 0);
             this.menuStrip1.Name = "menuStrip1";
-            this.menuStrip1.Size = new System.Drawing.Size(536, 24);
+            this.menuStrip1.Size = new System.Drawing.Size(536, 29);
             this.menuStrip1.TabIndex = 3;
             this.menuStrip1.Text = "menuStrip1";
             // 
@@ -182,6 +183,7 @@
             this.clientesToolStripMenuItem,
             this.reservasToolStripMenuItem,
             this.películasToolStripMenuItem});
+            this.consultasToolStripMenuItem.Enabled = false;
             this.consultasToolStripMenuItem.Name = "consultasToolStripMenuItem";
             this.consultasToolStripMenuItem.Size = new System.Drawing.Size(71, 20);
             this.consultasToolStripMenuItem.Text = "Consultas";
@@ -190,6 +192,7 @@
             // 
             this.aBMToolStripMenuItem.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
             this.aBMPeliculasToolStripMenuItem});
+            this.aBMToolStripMenuItem.Enabled = false;
             this.aBMToolStripMenuItem.Name = "aBMToolStripMenuItem";
             this.aBMToolStripMenuItem.Size = new System.Drawing.Size(45, 20);
             this.aBMToolStripMenuItem.Text = "ABM";
@@ -241,7 +244,7 @@
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackgroundImageLayout = System.Windows.Forms.ImageLayout.Center;
-            this.ClientSize = new System.Drawing.Size(536, 283);
+            this.ClientSize = new System.Drawing.Size(536, 300);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.lblEstadoConexion);
             this.Controls.Add(this.lblConexion);
@@ -256,6 +259,7 @@
             this.MainMenuStrip = this.menuStrip1;
             this.MaximizeBox = false;
             this.Name = "frmPrincipal";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Menu principal";
             this.Load += new System.EventHandler(this.frmPrincipal_Load);
             this.menuStrip1.ResumeLayout(false);

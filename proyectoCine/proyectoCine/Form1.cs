@@ -35,9 +35,11 @@ namespace proyectoCine
             btnConsulta1.Enabled = estado;
             btnConsulta2.Enabled = estado;
             btnConsulta3.Enabled = estado;
-            btnConsulta4.Enabled = estado;
-            btnConsulta5.Enabled = estado;
-            btnConsulta6.Enabled = estado;
+            consultasToolStripMenuItem.Enabled = estado;
+            aBMToolStripMenuItem.Enabled = estado;
+            //btnConsulta4.Enabled = estado;
+            //btnConsulta5.Enabled = estado;
+            //btnConsulta6.Enabled = estado;
             if (estado)
             {
                 lblEstadoConexion.Text = "Conectado";

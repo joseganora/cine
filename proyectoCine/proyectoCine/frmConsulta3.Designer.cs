@@ -66,7 +66,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 130F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(879, 733);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1310, 733);
             this.tableLayoutPanel1.TabIndex = 7;
             // 
             // groupBox1
@@ -88,7 +88,7 @@
             this.groupBox1.Location = new System.Drawing.Point(20, 40);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(20, 10, 20, 10);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(839, 110);
+            this.groupBox1.Size = new System.Drawing.Size(1270, 110);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Text = "Filtros";
@@ -126,7 +126,7 @@
             this.dgDatos.Name = "dgDatos";
             this.dgDatos.ReadOnly = true;
             this.dgDatos.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
-            this.dgDatos.Size = new System.Drawing.Size(839, 603);
+            this.dgDatos.Size = new System.Drawing.Size(1270, 603);
             this.dgDatos.TabIndex = 0;
             this.dgDatos.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgDatos_CellContentClick);
             // 
@@ -138,7 +138,7 @@
             this.label1.Location = new System.Drawing.Point(3, 5);
             this.label1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(873, 20);
+            this.label1.Size = new System.Drawing.Size(1304, 20);
             this.label1.TabIndex = 1;
             this.label1.Text = "PELICULAS";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
@@ -209,9 +209,9 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(744, 30);
+            this.button1.Location = new System.Drawing.Point(628, 26);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 61);
+            this.button1.Size = new System.Drawing.Size(111, 61);
             this.button1.TabIndex = 5;
             this.button1.Text = "Imprimir Informe";
             this.button1.UseVisualStyleBackColor = true;
@@ -249,15 +249,17 @@
             this.btnVerDescripcion.TabIndex = 6;
             this.btnVerDescripcion.Text = "Ver Descripcion";
             this.btnVerDescripcion.UseVisualStyleBackColor = true;
+            this.btnVerDescripcion.Click += new System.EventHandler(this.btnVerDescripcion_Click);
             // 
             // frmConsulta3
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(879, 733);
+            this.ClientSize = new System.Drawing.Size(1310, 733);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "frmConsulta3";
             this.Text = "frmConsulta3";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmConsulta3_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel1.PerformLayout();

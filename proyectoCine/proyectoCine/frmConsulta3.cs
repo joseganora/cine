@@ -25,21 +25,27 @@ namespace proyectoCine
         void consulta()
         {
             masCondiciones = "";
+            printHeader = "Peliculas registradas";
             if (cbxAno.SelectedIndex!=-1 && cbxAno.SelectedIndex != 0)
             {
                 masCondiciones += " and year(p.fecha_estreno)=" + ((DataRowView)cbxAno.SelectedItem)["value"].ToString();
+                printHeader += " del año "+ ((DataRowView)cbxAno.SelectedItem)["value"].ToString();
             }
             if (cbxDirector.SelectedIndex != -1 && cbxDirector.SelectedIndex != 0)
             {
                 masCondiciones += " and d.cod_director=" + cbxDirector.SelectedValue;
+                printHeader += " del director " + ((DataRowView)cbxDirector.SelectedItem)["display"].ToString();
             }
             if (cbxGeneros.SelectedIndex != -1 && cbxGeneros.SelectedIndex != 0)
             {
                 masCondiciones += " and g.cod_genero=" + cbxGeneros.SelectedValue;
+                printHeader += " del género " + ((DataRowView)cbxGeneros.SelectedItem)["display"].ToString();
             }
-            string consulta = "select p.cod_pelicula Id,p.titulo Titulo, year(p.fecha_estreno) 'Año', p.idioma 'Idioma',g.nombre 'Genero', d.apellido+', '+d.nombre 'Director',p.calificacion Califición, p.duracion 'Duracion (Min)' from Peliculas p join Generos g on p.cod_genero =g.cod_genero join Directores d on p.cod_director = d.cod_director where upper(p.titulo) like '%'+upper('"+txtNombre.Text+"')+'%' "+masCondiciones+ " order by Titulo";
+            string consulta = "select p.cod_pelicula Id,p.sinopsis,p.titulo Titulo, year(p.fecha_estreno) 'Año', p.idioma 'Idioma',g.nombre 'Genero', d.apellido+', '+d.nombre 'Director',p.calificacion Califición, p.duracion 'Duracion (Min)' from Peliculas p join Generos g on p.cod_genero =g.cod_genero join Directores d on p.cod_director = d.cod_director where upper(p.titulo) like '%'+upper('"+txtNombre.Text+"')+'%' "+masCondiciones+ " order by Titulo";
             dataT = con.consultaDT(consulta);
             dgDatos.DataSource = dataT;
+            dgDatos.Columns[0].Visible = false;
+            dgDatos.Columns[1].Visible = false;
         }
         public frmConsulta3(conexion c):this()
         {
@@ -99,6 +105,7 @@ namespace proyectoCine
         {
             printPreviewDialog1.Document = printDocument1;
             printPreviewDialog1.ClientSize = new System.Drawing.Size(Screen.PrimaryScreen.WorkingArea.Width, Screen.PrimaryScreen.WorkingArea.Height);
+            printPreviewDialog1.PrintPreviewControl.Zoom = 150 / 100f;
             printPreviewDialog1.ShowDialog();
         }
 
@@ -119,14 +126,21 @@ namespace proyectoCine
                 actores += " - "+dt.Rows[i]["Nombre"].ToString()+"\n";
             }
             if(dt.Rows.Count==0) MessageBox.Show("El sistema no registra actores para esta pelicula", "ACTORES DE " + dr.Cells[1].Value.ToString());
-            MessageBox.Show(actores,"ACTORES DE "+ dr.Cells[1].Value.ToString());
+            else MessageBox.Show(actores,"ACTORES DE "+ dr.Cells[1].Value.ToString());
+        }
+
+        private void btnVerDescripcion_Click(object sender, EventArgs e)
+        {
+            
+            if (dgDatos.SelectedCells[1].Value != null) MessageBox.Show(dgDatos.SelectedCells[1].Value.ToString(), "SINOPSIS DE " + dgDatos.SelectedCells[2].Value.ToString()); 
+            else MessageBox.Show("El sistema no registra sinopsis para esta pelicula", "SINOPSIS DE " + dgDatos.SelectedCells[2].Value.ToString());
         }
 
         private void printDocument1_PrintPage(object sender, System.Drawing.Printing.PrintPageEventArgs e)
         {
             int count = 0;
             string footer = string.Empty;
-            int columnCount = dataT.Columns.Count;
+            int columnCount = dataT.Columns.Count-2;
 
             int maxRows = dataT.Rows.Count;
             PaperSize pz = printDocument1.DefaultPageSettings.PaperSize;
@@ -137,8 +151,10 @@ namespace proyectoCine
                 Brush brush = new SolidBrush(Color.Black);
                 Pen pen = new Pen(brush);
                 Font font;
-                if (columnCount > 3) font = new Font("Arial", 5);
-                else font = new Font("Arial", 10);
+                int tamaño = 10;
+                if (columnCount > 3) tamaño = 6;
+                font = new Font("Arial", 10, FontStyle.Bold);
+
                 SizeF size;
 
                 int x = 20, y = 20, width = (pz.Width / columnCount) - (40 / columnCount);
@@ -153,19 +169,23 @@ namespace proyectoCine
                 y += 50;
 
                 // Writes out all column names in designated locations, aligned as a table
+                font = new Font("Arial", tamaño, FontStyle.Bold); 
                 foreach (DataColumn column in dataT.Columns)
                 {
-                    size = g.MeasureString(column.ColumnName, font);
-                    xPadding = (width - size.Width) / 2;
-                    g.DrawString(column.ColumnName, font, brush, x + xPadding, y + 5);
-                    x += width;
+                    if (!column.ColumnName.Equals("Id") && !column.ColumnName.Equals("sinopsis"))
+                    {
+                        size = g.MeasureString(column.ColumnName, font);
+                        xPadding = (width - size.Width) / 2;
+                        g.DrawString(column.ColumnName, font, brush, x + xPadding, y + 5);
+                        x += width;
+                    }
                 }
 
                 x = 20;
                 y += 30;
 
                 // Process each row and place each item under correct column.
-
+                font = new Font("Arial", tamaño);
                 foreach (DataRow row in dataT.Rows)
                 {
                     count++;
@@ -173,7 +193,7 @@ namespace proyectoCine
                     {
 
 
-                        for (int i = 0; i < columnCount; i++)
+                        for (int i = 2; i < columnCount+2; i++)
                         {
                             size = g.MeasureString(row[i].ToString(), font);
                             xPadding = (width - size.Width) / 2;

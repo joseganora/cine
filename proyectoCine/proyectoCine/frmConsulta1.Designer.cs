@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(frmConsulta1));
             this.dgDatos = new System.Windows.Forms.DataGridView();
             this.label1 = new System.Windows.Forms.Label();
@@ -57,6 +58,14 @@
             this.dgDatos.AllowUserToAddRows = false;
             this.dgDatos.AllowUserToDeleteRows = false;
             this.dgDatos.AutoSizeColumnsMode = System.Windows.Forms.DataGridViewAutoSizeColumnsMode.Fill;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.BackColor = System.Drawing.SystemColors.Control;
+            dataGridViewCellStyle1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle1.ForeColor = System.Drawing.SystemColors.WindowText;
+            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.SystemColors.HighlightText;
+            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.dgDatos.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
             this.dgDatos.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
             this.dgDatos.Dock = System.Windows.Forms.DockStyle.Fill;
             this.dgDatos.GridColor = System.Drawing.Color.Gainsboro;
@@ -64,7 +73,7 @@
             this.dgDatos.Margin = new System.Windows.Forms.Padding(20, 10, 20, 10);
             this.dgDatos.Name = "dgDatos";
             this.dgDatos.ReadOnly = true;
-            this.dgDatos.Size = new System.Drawing.Size(1071, 693);
+            this.dgDatos.Size = new System.Drawing.Size(1312, 693);
             this.dgDatos.TabIndex = 0;
             // 
             // label1
@@ -75,9 +84,9 @@
             this.label1.Location = new System.Drawing.Point(3, 5);
             this.label1.Margin = new System.Windows.Forms.Padding(3, 5, 3, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(1105, 20);
+            this.label1.Size = new System.Drawing.Size(1346, 20);
             this.label1.TabIndex = 1;
-            this.label1.Text = "Clientes";
+            this.label1.Text = "CLIENTES";
             this.label1.TextAlign = System.Drawing.ContentAlignment.TopCenter;
             // 
             // label2
@@ -115,7 +124,7 @@
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 30F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 130F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle());
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1111, 873);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1352, 873);
             this.tableLayoutPanel1.TabIndex = 5;
             this.tableLayoutPanel1.Paint += new System.Windows.Forms.PaintEventHandler(this.tableLayoutPanel1_Paint_1);
             // 
@@ -138,7 +147,7 @@
             this.groupBox1.Location = new System.Drawing.Point(20, 40);
             this.groupBox1.Margin = new System.Windows.Forms.Padding(20, 10, 20, 10);
             this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(1071, 110);
+            this.groupBox1.Size = new System.Drawing.Size(1312, 110);
             this.groupBox1.TabIndex = 6;
             this.groupBox1.TabStop = false;
             this.groupBox1.Enter += new System.EventHandler(this.groupBox1_Enter);
@@ -146,9 +155,9 @@
             // button1
             // 
             this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.button1.Location = new System.Drawing.Point(922, 32);
+            this.button1.Location = new System.Drawing.Point(895, 28);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(120, 49);
+            this.button1.Size = new System.Drawing.Size(120, 58);
             this.button1.TabIndex = 7;
             this.button1.Text = "Imprimir Informe";
             this.button1.UseVisualStyleBackColor = true;
@@ -263,11 +272,12 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1111, 873);
+            this.ClientSize = new System.Drawing.Size(1352, 873);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "frmConsulta1";
             this.ShowInTaskbar = false;
             this.Text = "frmConsulta1";
+            this.WindowState = System.Windows.Forms.FormWindowState.Maximized;
             this.Load += new System.EventHandler(this.frmConsulta1_Load);
             ((System.ComponentModel.ISupportInitialize)(this.dgDatos)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
