@@ -145,7 +145,9 @@ namespace proyectoCine
             txtDuracion.Enabled = activar;
             btnGuardar.Enabled = activar;
             btnCancelar.Enabled = activar;
+            lstActores.Enabled = activar;
             btnNuevo.Enabled = !activar;
+            lstPeliculas.Enabled = !activar;
             btnEditar.Enabled = !activar;
             btnBorrar.Enabled = !activar;
         }
@@ -160,6 +162,8 @@ namespace proyectoCine
             cbxIdioma.SelectedIndex = -1;
             txtaSinopsis.Text = "";
             txtDuracion.Text = "";
+            lstActores.DataSource = null;
+            //lstActores.Items.Clear();
         }
 
         private void label9_Click(object sender, EventArgs e)
@@ -200,6 +204,7 @@ namespace proyectoCine
                 txtDuracion.Text = peliculas[seleccion].pDuracion.ToString();
                 nuevo = false;
                 activarFormulario(true);
+                cargarListaDeActores(peliculas[seleccion].pId, true);
             }
             else
             {
@@ -338,6 +343,7 @@ namespace proyectoCine
             //cancelar
             limpiarFormulario();
             activarFormulario(false);
+            lstActores.SelectedIndex = -1;
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -349,6 +355,74 @@ namespace proyectoCine
         {
             cargarArregloPeliculas(txtPelicula.Text);
             cargarListas();
+            if (lstPeliculas.SelectedIndex == -1)
+                limpiarFormulario();
+        }
+
+        private void lstPeliculas_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            int seleccion = lstPeliculas.SelectedIndex;
+            if (seleccion > -1)
+            {
+                txtId.Text = peliculas[seleccion].pId.ToString();
+                txtTitulo.Text = peliculas[seleccion].pTitulo;
+                dtpEstreno.Value = peliculas[seleccion].pEstreno;
+                cbxCalificacion.SelectedItem = peliculas[seleccion].pCalificacion.ToString();
+                cbxDirector.SelectedIndex = getIndexDir(peliculas[seleccion].pDirector.pId);
+                cbxGenero.SelectedIndex = getIndexGenero(peliculas[seleccion].pGenero.pId);
+                cbxIdioma.SelectedItem = peliculas[seleccion].pIdioma;
+                txtaSinopsis.Text = peliculas[seleccion].pSinopsis;
+                txtDuracion.Text = peliculas[seleccion].pDuracion.ToString();
+                cargarListaDeActores(peliculas[seleccion].pId,false);
+            }
+        }
+        private void cargarListaDeActores(int id, bool nuevo)
+        {
+            DataTable dt = conexion.consultaDT("select a.nombre+', '+a.apellido Actor, a.cod_actor id from Actores a join actores_peliculas ap on a.cod_actor=ap.cod_actor where ap.cod_pelicula=" + id);
+            if (nuevo) {
+                DataRow dr = dt.NewRow();
+                dr["Actor"] = "--------- NUEVO ----------";
+                dr["id"] = 0;
+                dt.Rows.Add(dr);
+            }
+            lstActores.DataSource = dt;
+            lstActores.DisplayMember = "Actor";
+            lstActores.SelectedIndex = -1;
+        }
+
+        private void lstActores_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
+            if (lstActores.SelectedIndex != -1){
+                int id = (int)((DataRowView)lstActores.SelectedItem)["id"];
+                if (id == 0)
+                {
+                    frmActores actor = new frmActores(conexion,Convert.ToInt32(txtId.Text));
+                    actor.ShowDialog();
+                    if (actor.pAceptar){
+                        conexion.insert_update("insert into actores_peliculas values ("+ Convert.ToInt32(txtId.Text) + ","+actor.pIdActor+")");
+                        cargarListaDeActores(Convert.ToInt32(txtId.Text), true);
+                    }
+                }
+            }
+                
+        }
+
+        private void lstActores_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            if (lstActores.SelectedIndex != -1)
+            {
+                int id = (int)((DataRowView)lstActores.SelectedItem)["id"];
+                if (id != 0)
+                {
+                    DialogResult mess=MessageBox.Show("¿Desea quitar el actor " + ((DataRowView)lstActores.SelectedItem)["Actor"] + " de esta pelicula", "Eliminar actor de pelicula", MessageBoxButtons.OKCancel);
+
+                    if (mess == DialogResult.OK){
+                        conexion.insert_update("delete actores_peliculas where cod_pelicula=" + Convert.ToInt32(txtId.Text) + " and cod_actor=" + id);
+                        cargarListaDeActores(Convert.ToInt32(txtId.Text), true);
+                    }
+                }
+            }
         }
     }
 }

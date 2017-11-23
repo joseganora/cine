@@ -74,3 +74,4 @@ C:\Users\PEPE\cine\proyectoCine\proyectoCine\obj\Debug\proyectoCine.csproj.CoreC
 C:\Users\PEPE\cine\proyectoCine\proyectoCine\obj\Debug\proyectoCine.exe
 C:\Users\PEPE\cine\proyectoCine\proyectoCine\obj\Debug\proyectoCine.pdb
 C:\Users\PEPE\cine\proyectoCine\proyectoCine\obj\Debug\proyectoCine.csprojResolveAssemblyReference.cache
+C:\Users\PEPE\cine\proyectoCine\proyectoCine\obj\Debug\proyectoCine.frmActores.resources
