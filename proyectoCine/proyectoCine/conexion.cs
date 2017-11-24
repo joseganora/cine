@@ -10,7 +10,7 @@ namespace proyectoCine
 {
     public class conexion
     {
-        string connectionString = @"Provider=SQLNCLI11;Data Source=PEPE-PC;Integrated Security=SSPI;Initial Catalog=CINE_TPI"; 
+        string connectionString = @"Provider=SQLNCLI11.1;Data Source=PEPE-TABLET\SQLEXPRESS;Integrated Security=SSPI;Initial Catalog=CINE_TPI";//Provider=SQLNCLI11;Data Source=PEPE-PC;Integrated Security=SSPI;Initial Catalog=CINE_TPI"; 
         OleDbConnection connection;
         OleDbCommand comando;
         OleDbDataReader dr;
