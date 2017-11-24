@@ -171,6 +171,7 @@
             this.Controls.Add(this.btnCancelar);
             this.Controls.Add(this.cbxActores);
             this.Name = "frmActores";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "actores";
             this.Load += new System.EventHandler(this.frmActores_Load);
             this.groupBox1.ResumeLayout(false);

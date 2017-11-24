@@ -30,6 +30,7 @@
         {
             this.lstPeliculas = new System.Windows.Forms.ListBox();
             this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.lstActores = new System.Windows.Forms.ListBox();
             this.txtaSinopsis = new System.Windows.Forms.RichTextBox();
             this.cbxCalificacion = new System.Windows.Forms.ComboBox();
             this.cbxDirector = new System.Windows.Forms.ComboBox();
@@ -42,6 +43,7 @@
             this.label12 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.label10 = new System.Windows.Forms.Label();
+            this.label14 = new System.Windows.Forms.Label();
             this.label9 = new System.Windows.Forms.Label();
             this.label8 = new System.Windows.Forms.Label();
             this.label7 = new System.Windows.Forms.Label();
@@ -59,8 +61,6 @@
             this.label1 = new System.Windows.Forms.Label();
             this.label13 = new System.Windows.Forms.Label();
             this.txtPelicula = new System.Windows.Forms.TextBox();
-            this.label14 = new System.Windows.Forms.Label();
-            this.lstActores = new System.Windows.Forms.ListBox();
             this.groupBox1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -104,6 +104,19 @@
             this.groupBox1.Size = new System.Drawing.Size(515, 474);
             this.groupBox1.TabIndex = 1;
             this.groupBox1.TabStop = false;
+            // 
+            // lstActores
+            // 
+            this.lstActores.Enabled = false;
+            this.lstActores.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lstActores.FormattingEnabled = true;
+            this.lstActores.ItemHeight = 24;
+            this.lstActores.Location = new System.Drawing.Point(120, 361);
+            this.lstActores.Name = "lstActores";
+            this.lstActores.Size = new System.Drawing.Size(362, 100);
+            this.lstActores.TabIndex = 9;
+            this.lstActores.SelectedIndexChanged += new System.EventHandler(this.lstActores_SelectedIndexChanged);
+            this.lstActores.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lstActores_MouseDoubleClick);
             // 
             // txtaSinopsis
             // 
@@ -228,6 +241,17 @@
             this.label10.TabIndex = 0;
             this.label10.Text = "Duracion";
             this.label10.Click += new System.EventHandler(this.label9_Click);
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label14.Location = new System.Drawing.Point(14, 367);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(74, 24);
+            this.label14.TabIndex = 0;
+            this.label14.Text = "Actores";
+            this.label14.Click += new System.EventHandler(this.label9_Click);
             // 
             // label9
             // 
@@ -405,30 +429,6 @@
             this.txtPelicula.TabIndex = 6;
             this.txtPelicula.TextChanged += new System.EventHandler(this.txtPelicula_TextChanged);
             // 
-            // label14
-            // 
-            this.label14.AutoSize = true;
-            this.label14.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label14.Location = new System.Drawing.Point(14, 367);
-            this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(74, 24);
-            this.label14.TabIndex = 0;
-            this.label14.Text = "Actores";
-            this.label14.Click += new System.EventHandler(this.label9_Click);
-            // 
-            // lstActores
-            // 
-            this.lstActores.Enabled = false;
-            this.lstActores.Font = new System.Drawing.Font("Microsoft Sans Serif", 14.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lstActores.FormattingEnabled = true;
-            this.lstActores.ItemHeight = 24;
-            this.lstActores.Location = new System.Drawing.Point(120, 361);
-            this.lstActores.Name = "lstActores";
-            this.lstActores.Size = new System.Drawing.Size(362, 100);
-            this.lstActores.TabIndex = 9;
-            this.lstActores.SelectedIndexChanged += new System.EventHandler(this.lstActores_SelectedIndexChanged);
-            this.lstActores.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lstActores_MouseDoubleClick);
-            // 
             // abmPeliculas
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
@@ -446,6 +446,7 @@
             this.Controls.Add(this.lstPeliculas);
             this.Controls.Add(this.label13);
             this.Name = "abmPeliculas";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "abmPeliculas";
             this.Load += new System.EventHandler(this.abmPeliculas_Load);
             this.groupBox1.ResumeLayout(false);
