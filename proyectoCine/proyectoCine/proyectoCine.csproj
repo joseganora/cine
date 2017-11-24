@@ -85,10 +85,11 @@
     <Compile Include="abmPeliculas.Designer.cs">
       <DependentUpon>abmPeliculas.cs</DependentUpon>
     </Compile>
-    <Compile Include="CINE_TPIDataSet.Designer.cs">
-      <AutoGen>True</AutoGen>
-      <DesignTime>True</DesignTime>
-      <DependentUpon>CINE_TPIDataSet.xsd</DependentUpon>
+    <Compile Include="actores.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="actores.Designer.cs">
+      <DependentUpon>actores.cs</DependentUpon>
     </Compile>
     <Compile Include="conexion.cs" />
     <Compile Include="director.cs" />
@@ -148,6 +149,9 @@
     <EmbeddedResource Include="abmPeliculas.resx">
       <DependentUpon>abmPeliculas.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="actores.resx">
+      <DependentUpon>actores.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -181,17 +185,6 @@
       <AutoGen>True</AutoGen>
       <DependentUpon>Resources.resx</DependentUpon>
     </Compile>
-    <None Include="CINE_TPIDataSet.xsc">
-      <DependentUpon>CINE_TPIDataSet.xsd</DependentUpon>
-    </None>
-    <None Include="CINE_TPIDataSet.xsd">
-      <Generator>MSDataSetGenerator</Generator>
-      <LastGenOutput>CINE_TPIDataSet.Designer.cs</LastGenOutput>
-      <SubType>Designer</SubType>
-    </None>
-    <None Include="CINE_TPIDataSet.xss">
-      <DependentUpon>CINE_TPIDataSet.xsd</DependentUpon>
-    </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
       <Generator>SettingsSingleFileGenerator</Generator>
