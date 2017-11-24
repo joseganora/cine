@@ -18,8 +18,9 @@ namespace proyectoCine
         pelicula[] peliculas;
         director[] directores;
         genero[] generos;
+        List<int> idActoresAux;
         bool nuevo = false;
-        int contPeliculas = 0;
+        int contPeliculas= 0;
         
         public abmPeliculas()
         {
@@ -28,6 +29,7 @@ namespace proyectoCine
         public abmPeliculas(conexion con) :this()
         {
             conexion = con;
+            idActoresAux = new List<int>();
         }
         private void abmPeliculas_Load(object sender, EventArgs e)
         {
@@ -302,6 +304,9 @@ namespace proyectoCine
                           p.pCalificacion + ", duracion=" + p.pDuracion + " where cod_pelicula="+ id;
             }
             conexion.insert_update(comando);
+            for(int i=0;i <idActoresAux.Count; i++)
+                    conexion.insert_update("insert into actores_peliculas values (" + Convert.ToInt32(txtId.Text) + "," + idActoresAux[i] + ")");
+            idActoresAux.Clear();
             MessageBox.Show("Pelicula" + accion + "correctamente", "éxito", MessageBoxButtons.OK);
             activarFormulario(false);
             cargarListas();
@@ -321,7 +326,7 @@ namespace proyectoCine
         {
             try
             {
-                Convert.ToInt32(t);
+                Convert.ToInt32(t.Text);
                 return true;
             }catch(Exception exc)
             {
@@ -341,9 +346,10 @@ namespace proyectoCine
         private void button5_Click(object sender, EventArgs e)
         {
             //cancelar
+            idActoresAux.Clear();
             limpiarFormulario();
             activarFormulario(false);
-            lstActores.SelectedIndex = -1;
+         
         }
 
         private void button6_Click(object sender, EventArgs e)
@@ -400,12 +406,28 @@ namespace proyectoCine
                     frmActores actor = new frmActores(conexion,Convert.ToInt32(txtId.Text));
                     actor.ShowDialog();
                     if (actor.pAceptar){
-                        conexion.insert_update("insert into actores_peliculas values ("+ Convert.ToInt32(txtId.Text) + ","+actor.pIdActor+")");
-                        cargarListaDeActores(Convert.ToInt32(txtId.Text), true);
+                        idActoresAux.Add(actor.pIdActor);
+                        agregarActor(actor.pIdActor);
+                        
                     }
                 }
             }
                 
+        }
+        private void agregarActor(int id)
+        {
+            conexion.consultaDR("select a.nombre+', '+a.apellido Actor, a.cod_actor id from Actores a where a.cod_actor=" + id);
+            OleDbDataReader dr = conexion.pDr;
+            if (dr.Read())
+            {
+                DataTable dt = (DataTable)lstActores.DataSource;
+                DataRow drow = dt.NewRow();
+                drow["Actor"] = dr["Actor"];
+                drow["id"] = dr["id"];
+                dt.Rows.InsertAt (drow,0);
+            }
+            
+            conexion.desconectar();
         }
 
         private void lstActores_MouseDoubleClick(object sender, MouseEventArgs e)
