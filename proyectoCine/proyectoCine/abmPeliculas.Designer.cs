@@ -115,6 +115,7 @@
             this.lstActores.Name = "lstActores";
             this.lstActores.Size = new System.Drawing.Size(362, 100);
             this.lstActores.TabIndex = 9;
+            this.lstActores.MouseClick += new System.Windows.Forms.MouseEventHandler(this.lstActores_MouseClick);
             this.lstActores.SelectedIndexChanged += new System.EventHandler(this.lstActores_SelectedIndexChanged);
             this.lstActores.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.lstActores_MouseDoubleClick);
             // 

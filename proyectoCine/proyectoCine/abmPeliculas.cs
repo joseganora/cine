@@ -224,11 +224,13 @@ namespace proyectoCine
                 if (DialogResult.OK== MessageBox.Show("¿Esta seguro que quiere eliminar esta pelicula?", "éxito", MessageBoxButtons.OKCancel))
                 {
                     int id = peliculas[lstPeliculas.SelectedIndex].pId;
-                    
-                    string comando = "delete * from peliculas where cod_pelicula=" + id.ToString();
+                    conexion.insert_update("delete from actores_peliculas where cod_pelicula = " + id.ToString());
+                    string comando = "delete from peliculas where cod_pelicula=" + id.ToString();
                     conexion.insert_update(comando);
+                    
                     cargarArreglos();
                     cargarListas();
+                    limpiarFormulario();
                 }
             }
             else
@@ -403,7 +405,7 @@ namespace proyectoCine
                 int id = (int)((DataRowView)lstActores.SelectedItem)["id"];
                 if (id == 0)
                 {
-                    frmActores actor = new frmActores(conexion,Convert.ToInt32(txtId.Text));
+                    frmActores actor = new frmActores(conexion,Convert.ToInt32(txtId.Text),idActoresAux);
                     actor.ShowDialog();
                     if (actor.pAceptar){
                         idActoresAux.Add(actor.pIdActor);
@@ -444,6 +446,13 @@ namespace proyectoCine
                         cargarListaDeActores(Convert.ToInt32(txtId.Text), true);
                     }
                 }
+            }
+        }
+
+        private void lstActores_MouseClick(object sender, MouseEventArgs e)
+        {
+            if (lstActores.Items.Count == 0){
+                MessageBox.Show("Antes de agregar actores debes guardar la pelicula, \n Haz click en guardar y luego en 'editar' para agregar actores");
             }
         }
     }

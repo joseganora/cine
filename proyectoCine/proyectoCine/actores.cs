@@ -15,6 +15,7 @@ namespace proyectoCine
         conexion con;
         int id;
         int idActor;
+        List<int> idActores;
         public int pIdActor
         {
             get { return idActor; }
@@ -24,17 +25,22 @@ namespace proyectoCine
         {
             get { return Aceptar; }
         }
-        public frmActores(conexion conex, int id)
+        public frmActores(conexion conex, int id, List<int> idActores)
         {
             InitializeComponent();
             con = conex;
             this.id = id;
             Aceptar = false;
+            this.idActores = idActores;
         }
 
         private void frmActores_Load(object sender, EventArgs e)
         {
             DataTable dt = con.consultaDT("select a.nombre+', '+a.apellido Actor, a.cod_actor id from Actores a where not exists (select cod_actor from actores_peliculas where cod_actor=a.cod_actor and cod_pelicula=" + id+ ") order by Actor");
+            for(int i = 0; i <dt.Rows.Count; i++)
+            {
+                if (idActores.Contains((int)dt.Rows[i].ItemArray[1])) dt.Rows.RemoveAt(i);
+            }
             cbxActores.DataSource = dt;
             cbxActores.DisplayMember = "Actor";
             cbxActores.ValueMember="id";
